@@ -444,29 +444,19 @@
 
 <!-- ══ COBERTURA NACIONAL ══ -->
 <section id="cobertura">
-  <div class="s-tag">Presencia nacional</div>
-  <h2 class="s-title reveal">Cubrimos toda<br>la República Mexicana</h2>
-  <p class="s-sub reveal">Proyectos activos en más de 25 estados. El mismo nivel de servicio, garantía y certificación en cualquier punto del país.</p>
+  <div class="s-tag">Zonas de operación</div>
+  <h2 class="s-title reveal">Presencia en<br>8 estados mexicanos</h2>
+  <p class="s-sub reveal">Operamos activamente en Estado de México, Ciudad de México, Guanajuato, Querétaro, San Luis Potosí, Puebla, Veracruz y Tabasco con el mismo nivel de servicio, garantía y certificación.</p>
   <div class="cob-layout">
     <div>
       <div class="states-grid stg" id="statesGrid">
-        <div class="stt on">CDMX</div><div class="stt on">Edo. Méx.</div><div class="stt on">Jalisco</div><div class="stt on">Nuevo León</div>
-        <div class="stt on">Puebla</div><div class="stt on">Guanajuato</div><div class="stt on">Chihuahua</div><div class="stt on">Veracruz</div>
-        <div class="stt on">Baja Cal.</div><div class="stt on">Sonora</div><div class="stt on">Tamaulipas</div><div class="stt on">Sinaloa</div>
-        <div class="stt on">Coahuila</div><div class="stt">Oaxaca</div><div class="stt">Chiapas</div><div class="stt on">Querétaro</div>
-        <div class="stt on">San Luis P.</div><div class="stt on">Yucatán</div><div class="stt">Guerrero</div><div class="stt on">Hidalgo</div>
-        <div class="stt">Morelos</div><div class="stt">Tabasco</div><div class="stt">Campeche</div><div class="stt">Qna. Roo</div>
-        <div class="stt on">Durango</div><div class="stt">Zacatecas</div><div class="stt on">Michoacán</div><div class="stt">Nayarit</div>
-        <div class="stt">Tlaxcala</div><div class="stt on">Aguascalientes</div><div class="stt">Colima</div><div class="stt">B.C. Sur</div>
+        <div class="stt on">CDMX</div><div class="stt on">Edo. Méx.</div><div class="stt on">Guanajuato</div><div class="stt on">Querétaro</div>
+        <div class="stt on">San Luis P.</div><div class="stt on">Puebla</div><div class="stt on">Veracruz</div><div class="stt on">Tabasco</div>
       </div>
       <div class="cob-legend">
         <div class="cob-legend-item">
           <div class="cob-legend-sq" style="background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.5)"></div>
-          Con proyectos activos
-        </div>
-        <div class="cob-legend-item">
-          <div class="cob-legend-sq" style="background:var(--card);border:1px solid var(--bdr)"></div>
-          En expansión
+          Con cobertura activa
         </div>
       </div>
       <div class="co2-badge">
@@ -480,9 +470,9 @@
     </div>
     <div class="cob-stats">
       <div class="cob-stat-big">
-        <div class="n">25+</div>
-        <div class="l">Estados con proyectos activos</div>
-        <div class="d">Desde Tijuana hasta Mérida — cubrimos toda la República con el mismo nivel de servicio, garantía y equipo certificado.</div>
+        <div class="n">8</div>
+        <div class="l">Estados con cobertura directa</div>
+        <div class="d">Cobertura completa en la zona central, occidente y golfo de México. Respuesta en menos de 48 horas en cualquier estado de nuestra zona.</div>
       </div>
       <div class="cob-mini-grid">
         <div class="cob-mini">
@@ -498,7 +488,7 @@
           <div class="l">Proyectos<br>completados</div>
         </div>
         <div class="cob-mini">
-          <div class="n">10+</div>
+          <div class="n">15+</div>
           <div class="l">Años de<br>experiencia</div>
         </div>
       </div>
@@ -787,7 +777,7 @@
         <div class="ff"><label>Correo electrónico *</label><input type="email" placeholder="correo@ejemplo.com" required></div>
         <div class="form-row">
           <div class="ff"><label>Tipo de instalación</label><select><option>Casa habitación</option><option>Negocio/Empresa</option><option>Industrial</option><option>Otro</option></select></div>
-          <div class="ff"><label>Monto de su último recibo mensual *</label><input type="number" placeholder="Ej: 2500" required></div>
+          <div class="ff"><label>Monto de su último recibo mensual *</label><div style="position:relative"><span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t1);font-weight:600;font-size:1.1rem">$</span><input type="number" id="reciboInput" placeholder="Ej: 2500" required style="padding-left:32px"></div></div>
         </div>
         <div class="ff"><label>Mensaje (opcional)</label><textarea rows="3" placeholder="Cuéntanos sobre tu proyecto..."></textarea></div>
         <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:1rem" id="submitBtn">Quiero mi cotización gratis →</button>
@@ -966,13 +956,16 @@ function submitForm(e) {
   b.classList.add('btn-submitting');
   b.disabled = true;
   b.innerHTML = '<span class="submit-spinner"></span> Enviando...';
+  
   const nombre = form.querySelector('input[type="text"]')?.value || '';
   const telefono = form.querySelector('input[type="tel"]')?.value || '';
   const correo = form.querySelector('input[type="email"]')?.value || '';
   const tipo = form.querySelectorAll('select')[0]?.value || '';
-  const recibo = form.querySelectorAll('select')[1]?.value || '';
+  const recibo = document.getElementById('reciboInput')?.value || '';
   const mensaje = form.querySelector('textarea')?.value || '';
-  const waMsg = `Hola, me contacto desde su página web www.abcsolar.com.mx.%0A%0A*Datos de contacto:*%0ANombre: ${encodeURIComponent(nombre)}%0ATeléfono: ${encodeURIComponent(telefono)}%0ACorreo: ${encodeURIComponent(correo)}%0ATipo: ${encodeURIComponent(tipo)}%0ARecibo mensual: ${encodeURIComponent(recibo)}%0AMensaje: ${encodeURIComponent(mensaje) || 'Sin mensaje adicional'}`;
+  
+  const waMsg = `Hola, me contacto desde su página web www.abcsolar.com.mx.%0A%0A*Datos de contacto:*%0ANombre: ${encodeURIComponent(nombre)}%0ATeléfono: ${encodeURIComponent(telefono)}%0ACorreo: ${encodeURIComponent(correo)}%0ATipo de instalación: ${encodeURIComponent(tipo)}%0ARecibo mensual: $${encodeURIComponent(recibo)}%0AMensaje: ${encodeURIComponent(mensaje) || 'Sin mensaje adicional'}`;
+  
   setTimeout(() => {
     window.open('https://wa.me/527226220941?text=' + waMsg, '_blank');
     b.classList.remove('btn-submitting');
