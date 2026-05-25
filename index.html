@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ABCSolar — Energía Solar | Hogar · Empresa · Industria</title>
+  <meta name="description" content="Instalamos sistemas fotovoltaicos para hogares, empresas e industrias en México. Ahorra hasta 100% en tu recibo de CFE. +500 instalaciones, 25 años de garantía. Certificados FIDE y CONOCER.">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets (Modular CSS) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Security: Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-src https://www.youtube.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="#beneficios" onclick="closeMob()">Beneficios</a>
+  <a href="#para-quien" onclick="closeMob()">Soluciones</a>
+  <a href="#calculadora" onclick="closeMob()">Calculadora</a>
+  <a href="#clientes" onclick="closeMob()">Clientes</a>
+  <a href="cobertura.html">Cobertura</a>
+  <a href="#proyectos" onclick="closeMob()">Proyectos</a>
+  <a href="#testimonios" onclick="closeMob()">Testimonios</a>
+  <a href="#contacto" onclick="closeMob()" style="color:var(--sun)">Cotización →</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo"><img src="public/images/placeholder.jpg" id="navLogo" alt="ABCSolar"></a>
+  <ul class="nav-links">
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#calculadora">Calculadora</a></li>
+    <li><a href="#para-quien">Soluciones</a></li>
+    <li><a href="cobertura.html">Cobertura</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Cambiar modo" aria-label="Cambiar modo de color">🌙</button>
+    <a href="#contacto" class="btn-cta">Cotización Gratis</a>
+    <div class="ham" onclick="openMob()" role="button" tabindex="0" aria-label="Abrir menú de navegación" onkeydown="if(event.key==='Enter')openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge"><div class="dot-pulse"></div>FIDE Reg. 1845SFV · +10 años instalando</div>
+    <div class="hero-rating">
+      <div class="rating-stars">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--sun)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <span class="rating-text"><strong>4.9 / 5</strong> · 98% de clientes satisfechos</span>
+    </div>
+    <h1 class="hero-title">
+      El sol ya<br>
+      <span class="line2">trabaja para ti.</span>
+      <span class="line3">¿Y tú lo sabes?</span>
+    </h1>
+    <p class="hero-desc">
+      Instalamos sistemas fotovoltaicos para hogares, empresas e industrias.
+      Ahorro hasta del <strong>90 al 95%</strong> en tu recibo de CFE desde el primer mes,
+      con garantía real de 25 años y servicio post-venta activo.
+    </p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primary">Quiero cotización gratis →</a>
+      <a href="#calculadora" class="btn-outline">Calcular mi ahorro</a>
+    </div>
+    <div class="scroll-arrow" onclick="document.getElementById('numbers').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0-7-7m7 7 7-7"/></svg>
+      Ver cómo funciona
+    </div>
+    <div class="hero-stats stg">
+      <div class="stat-box">
+        <div class="stat-n"><span class="count-up" data-target="500">0</span>+</div>
+        <div class="stat-l">Instalaciones realizadas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n"><span class="count-up" data-target="10">0</span>+</div>
+        <div class="stat-l">Años de experiencia</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n"><span class="count-up" data-target="25">0</span></div>
+        <div class="stat-l">Años de garantía</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n"><span class="count-up" data-target="98">0</span>%</div>
+        <div class="stat-l">Clientes satisfechos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-mosaic">
+      <div class="mosaic-img tall">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=85" alt="Panel solar industrial" loading="eager">
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-tag">Industrial</div>
+      </div>
+      <div class="mosaic-img">
+        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=500&q=85" alt="Casa con paneles" loading="eager">
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-tag">Residencial</div>
+      </div>
+      <div class="mosaic-img">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=500&q=85" alt="Campo solar" loading="eager">
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-tag">Energía limpia</div>
+      </div>
+      <div class="mosaic-img span2">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=85" alt="Panel comercial" loading="eager">
+        <div class="mosaic-overlay"></div>
+        <div class="mosaic-tag">Comercial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  ⚡ <strong>Oferta del mes:</strong>&nbsp; Cotiza ahora y obtén diagnóstico energético gratuito + asesoría sin costo.
+</div>
+
+<!-- ══ NÚMEROS ══ -->
+<section id="numbers" style="padding:56px">
+  <div class="numbers-grid stg">
+    <div class="num-item">
+      <div class="num-val"><span class="count-up" data-target="500">0</span>+</div>
+      <div class="num-label">Proyectos instalados</div>
+    </div>
+    <div class="num-item">
+      <div class="num-val"><span class="count-up" data-target="12">0</span>M+</div>
+      <div class="num-label">kWh generados al año</div>
+    </div>
+    <div class="num-item">
+      <div class="num-val"><span class="count-up" data-target="7">0</span>K+</div>
+      <div class="num-label">Toneladas CO₂ evitadas</div>
+    </div>
+    <div class="num-item">
+      <div class="num-val"><span class="count-up" data-target="98">0</span>%</div>
+      <div class="num-label">Satisfacción de clientes</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BENEFICIOS BENTO ══ -->
+<section id="beneficios">
+  <div class="s-tag">Por qué elegirnos</div>
+  <h2 class="s-title reveal">Lo que ABCSolar<br>te garantiza</h2>
+  <div class="bento stg">
+    <!-- Featured: garantía 25 años - columna izquierda, fila doble -->
+    <div class="bento-card featured">
+      <div class="bc-num">25</div>
+      <div class="bc-title">Años de garantía en paneles</div>
+      <p class="bc-text">Trabajamos solo con fabricantes de primer nivel. Garantía de producción de 25 años y 10 años en sistema completo. Si rinde menos, el fabricante responde.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--bdr)">
+        <div style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--t1)"><span style="color:var(--sun);font-weight:700">✓</span> Garantía de potencia 25 años</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--t1)"><span style="color:var(--sun);font-weight:700">✓</span> Garantía de producto 10 años</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--t1)"><span style="color:var(--sun);font-weight:700">✓</span> Inversores con 5–10 años garantía</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--t1)"><span style="color:var(--sun);font-weight:700">✓</span> Mano de obra: 1 año garantía</div>
+      </div>
+    </div>
+    <!-- Fila 1: columnas 2 y 3 -->
+    <div class="bento-card">
+      <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="bc-title">Ahorro desde el primer mes</div></div>
+      <p class="bc-text">Reducciones de 90 al 95% en tu recibo de CFE desde que tu sistema entra en operación.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="bc-title">Post-venta activo</div></div>
+      <p class="bc-text">No te dejamos solo después de instalar. Mantenimiento preventivo y correctivo disponible siempre.</p>
+    </div>
+    <!-- Fila 2: columnas 2 y 3 (wide) -->
+    <div class="bento-card wide">
+      <div class="wide-grid">
+        <div class="wide-item">
+          <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div><div class="bc-title">Trámites con CFE incluidos</div></div>
+          <p class="bc-text">Interconexión, permisos municipales y gestión de CFE — todo lo manejamos nosotros. Tú solo esperas resultados.</p>
+        </div>
+        <div class="wide-item">
+          <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="bc-title">ROI hasta 5 años en residencial</div></div>
+          <p class="bc-text">Nuestros proyectos residenciales recuperan inversión en 2.5–5 años promedio. De ahí en adelante, todo es ganancia pura.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Fila 3: las 3 columnas -->
+    <div class="bento-card">
+      <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="bc-title">Precio transparente</div></div>
+      <p class="bc-text">Sin letra chica. Propuesta detallada con costo, ROI y tiempo de recuperación antes de firmar nada.</p>
+    </div>
+    <div class="bento-card">
+      <div class="bc-header"><div class="bc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="bc-title">Instalación certificada</div></div>
+      <p class="bc-text">Todos nuestros técnicos cuentan con certificaciones CONOCER vigentes y más de 3 años en campo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BRAND LOGOS STRIP ══ -->
+<div class="logos-strip">
+  <div class="logos-label">Trabajamos con fabricantes de primer nivel</div>
+  <div class="logos-track">
+    <div class="brand-logo"><div class="bl-dot"></div><span>TRINA SOLAR</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>RENESOLA</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>LONGI SOLAR</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>HOYMILES</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>HUAWEI</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>GROWATT</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>SMA</span></div>
+    <div class="brand-logo"><div class="bl-dot"></div><span>FRONIUS</span></div>
+  </div>
+</div>
+
+<!-- ══ VIDEO CTA ══ -->
+<section id="video-cta" style="padding:0;overflow:hidden">
+  <div class="video-hero" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=85');background-size:cover;background-position:center 30%">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,8,15,.78) 0%,rgba(4,8,15,.55) 50%,rgba(245,158,11,.06) 100%)"></div>
+    <div style="position:relative;z-index:1;text-align:center;padding:100px 56px;max-width:720px;margin:0 auto">
+      <div class="s-tag" style="text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor"/></svg>
+        Nuestro proceso
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:20px;line-height:1.05">
+        De cero a <span style="color:var(--sun)">100% solar</span><br>en menos de 30 días*
+      </h2>
+      <p style="color:rgba(255,255,255,.72);font-size:1rem;line-height:1.85;margin-bottom:44px;max-width:520px;margin-left:auto;margin-right:auto">
+        Diagnóstico, diseño, instalación e interconexión con CFE. Todo con nuestro equipo certificado — sin complicaciones para ti.
+      </p>
+      <button class="video-play-btn" onclick="openVideoModal()">
+        <div class="play-ring">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <span>Ver cómo lo hacemos</span>
+      </button>
+      <div style="display:flex;gap:32px;justify-content:center;margin-top:48px;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--sun)">30 días</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:3px">*Tiempos sujetos a variación sin previo aviso por trámites con CFE</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.15)"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--sun)">0 trámites</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:3px">Tú no haces nada</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,.15)"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--sun)">100%</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.6);margin-top:3px">Llave en mano</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video: Cómo trabaja ABCSolar">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" aria-label="Cerrar video">✕</button>
+    <iframe id="videoFrame" width="100%" height="100%" src="" title="ABCSolar — Proceso de instalación fotovoltaica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block"></iframe>
+  </div>
+</div>
+
+<!-- ══ IMAGE BREAK 1 ══ -->
+<div class="img-break">
+  <img id="pb1" loading="lazy" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1600&q=85" alt="Instalación industrial">
+  <div class="img-break-overlay">
+    <div class="img-break-title">Más de <span>500 instalaciones</span><br>en toda la República Mexicana</div>
+    <a href="#contacto" class="btn-primary" style="font-size:.9rem;padding:13px 28px">Únete a nuestros clientes →</a>
+  </div>
+</div>
+
+<!-- ══ PARA QUIÉN ══ -->
+<section id="para-quien">
+  <div class="s-tag">Soluciones</div>
+  <h2 class="s-title reveal">Solar para cada<br>tipo de cliente</h2>
+  <div class="tabs stg">
+    <button class="tab-btn active" onclick="setTab(0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Residencial</button>
+    <button class="tab-btn" onclick="setTab(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> Comercial</button>
+    <button class="tab-btn" onclick="setTab(2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M2 20V8l7-5v5l7-5v5l5-3v10z"/></svg> Industrial</button>
+  </div>
+  <div class="tab-content active" id="tab0">
+    <div class="tab-img"><img loading="lazy" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=85" alt="Casa con paneles"></div>
+    <div class="tab-info">
+      <div class="tab-type">Residencial</div>
+      <div class="tab-title">Ahorro inmediato en tu recibo de luz</div>
+      <p class="tab-desc">Para hogares que quieren independencia energética real. Nuestros sistemas residenciales están dimensionados para cubrir hasta el 100% del consumo familiar, generando ahorro inmediato una vez activado.</p>
+      <ul class="tab-list">
+        <li>Sistemas desde 3 kWp, instalación en 1–3 días</li>
+        <li>Reducción de 90–95% en recibo mensual (ahorro inmediato al activar)</li>
+        <li>Ideal para tarifas DAC — sal del ciclo de alto consumo</li>
+        <li>Financiamiento disponible: paga menos de lo que ahorras</li>
+        <li>Monitoreo remoto de generación en tiempo real</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content" id="tab1">
+    <div class="tab-img"><img loading="lazy" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85" alt="Empresa comercial"></div>
+    <div class="tab-info">
+      <div class="tab-type">Comercial</div>
+      <div class="tab-title">Reduce costos operativos de tu empresa</div>
+      <p class="tab-desc">Para negocios en tarifa PDBT o GDBT. El solar comercial ofrece el mejor ROI del mercado y es deducible fiscalmente al 100% en México.</p>
+      <ul class="tab-list">
+        <li>Deduce el 100% de la inversión en tu declaración fiscal</li>
+        <li>ROI promedio: 2–3.5 años en proyectos comerciales</li>
+        <li>Sistemas de 10 kWp a 100 kWp</li>
+        <li>Monitoreo inteligente de demanda y generación</li>
+        <li>Reducción inmediata en tarifa PDBT (~$4/kWh)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content" id="tab2">
+    <div class="tab-img"><img loading="lazy" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="Instalación industrial"></div>
+    <div class="tab-info">
+      <div class="tab-type">Industrial</div>
+      <div class="tab-title">Ahorra millones en energía industrial</div>
+      <p class="tab-desc">Para industrias en tarifas GDMTO o GDMTH. Un sistema bien diseñado puede eliminar el consumo en horas punta y reducir dramáticamente la demanda contratada.</p>
+      <ul class="tab-list">
+        <li>Sistemas desde 100 kWp hasta varios MW</li>
+        <li>Ingeniería especializada en media y alta tensión</li>
+        <li>Elimina consumo en horario punta (tarifa GDMTH)</li>
+        <li>Proyecto llave en mano — permisos, instalación y seguimiento</li>
+        <li>Ahorro significativo en consumo mensual</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESO (5 pasos) ══ -->
+<section id="proceso">
+  <div class="s-tag">Cómo funciona</div>
+  <h2 class="s-title reveal">De cero a solar<br>en 5 pasos</h2>
+  <div class="proceso-track stg">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="step-title">Diagnóstico gratuito</div>
+      <p class="step-text">Analizamos tus últimos recibos de CFE, evaluamos tu espacio disponible y te decimos exactamente qué sistema necesitas.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="step-title">Propuesta a medida</div>
+      <p class="step-text">Te presentamos una propuesta personalizada con capacidad, costo total, ROI exacto y tiempo de recuperación — sin compromisos.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <div class="step-title">Instalación certificada</div>
+      <p class="step-text">Nuestros técnicos instalan tu sistema con todos los permisos en regla. Instalación limpia, segura y en el menor tiempo posible.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div>
+      <div class="step-title">Trámites con CFE</div>
+      <p class="step-text">Gestionamos el contrato de interconexión con CFE para que empieces a exportar energía y acumular créditos en tu factura.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">05</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="step-title">¡Empieza a ahorrar!</div>
+      <p class="step-text">Desde el primer mes de operación verás el cambio en tu recibo. Y nuestro equipo de post-venta estará siempre disponible para ti.</p>
+      <div class="step-arrow">✓</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CALCULADORA ══ -->
+<section id="calculadora">
+  <div class="s-tag">Simulador de ahorro</div>
+  <h2 class="s-title reveal">¿Cuánto puedes<br><span style="color:var(--sun)">ahorrar</span> con solar?</h2>
+  <p class="s-sub reveal">Ingresa tu consumo y calcula tu ahorro, los requerimientos del sistema y el impacto ambiental. Tarifas CFE 2025 actualizadas.</p>
+  <div class="calc-layout">
+    <div class="calc-box reveal-l">
+      <div class="cfield">
+        <label>Monto mensual en tu recibo de luz (MXN)</label>
+        <input type="number" id="recibo" placeholder="Escribe el total de tu último recibo" value="2500" oninput="calcular()">
+      </div>
+      <div class="cfield">
+        <label>Tipo de inmueble <span style="color:var(--sun);font-size:.72rem;">(tarifa CFE de referencia)</span></label>
+        <select id="tipo" onchange="calcular()">
+          <option value="residencial">🏠 Casa habitación — Tarifa 1 / DAC (~$1.00–$5.50/kWh)</option>
+          <option value="comercial_pdbt">🏪 Negocio pequeño/mediano — PDBT (~$4.00/kWh)</option>
+          <option value="comercial_gdbt">🏢 Empresa grande (>25 kW) — GDBT (~$4.20/kWh)</option>
+          <option value="industrial_gdmto">🏭 Industrial media tensión — GDMTO (~$3.20/kWh)</option>
+          <option value="industrial_gdmth">⚡ Industrial horaria — GDMTH (punta ~$5.20/kWh)</option>
+        </select>
+        <div class="tariff-note" id="tariff-note"></div>
+      </div>
+      <div class="cfield">
+        <label>Porcentaje de ahorro objetivo: <strong id="pct-lbl" style="color:var(--sun)">80%</strong></label>
+        <input type="range" class="range-input" id="pct" min="40" max="100" value="80" oninput="calcular()">
+      </div>
+      <div class="res-grid">
+        <div class="res-card"><div class="res-ico">💸</div><div class="res-lbl">Costo actual</div><div class="res-val" id="rc-mensual">$2,500</div><div class="res-sub" id="rc-anual">$30,000/año</div></div>
+        <div class="res-card"><div class="res-ico">🏦</div><div class="res-lbl">Ahorro estimado</div><div class="res-val" id="rc-ahorro">$2,000</div><div class="res-sub" id="rc-ahorro-a">$24,000/año</div></div>
+        <div class="res-card"><div class="res-ico">🌱</div><div class="res-lbl">Impacto ambiental</div><div class="res-val" id="rc-co2">284 kg</div><div class="res-sub" id="rc-arb">≈12.8 árboles/año</div></div>
+      </div>
+      <div class="req-panel">
+        <div class="req-title">⚡ Requerimientos del sistema solar</div>
+        <div class="req-grid">
+          <div><div class="req-item-label">Paneles necesarios</div><div class="req-item-val"><span id="r-paneles">8</span> unidades</div></div>
+          <div><div class="req-item-label">Capacidad total</div><div class="req-item-val"><span id="r-cap">4.8</span> kWp</div></div>
+          <div><div class="req-item-label">Espacio en techo</div><div class="req-item-val"><span id="r-esp">19.2</span> m²</div></div>
+          <div><div class="req-item-label">ROI estimado</div><div class="req-item-val"><span id="r-roi">3.2</span> años</div></div>
+        </div>
+      </div>
+      <a href="#contacto" class="btn-primary" style="width:100%;justify-content:center;margin-top:18px;padding:14px">Quiero mi cotización gratuita →</a>
+      <p style="font-size:.74rem;color:var(--t2);text-align:center;margin-top:10px">*Estimado orientativo. Cotización real gratuita y sin compromiso.</p>
+    </div>
+    <div class="calc-info-col reveal-r">
+      <div class="info-card"><div class="ic-icon">⚡</div><div><div class="ic-title">¿Cómo funciona la interconexión?</div><p class="ic-text">Los paneles generan electricidad de día. El excedente va a la red de CFE y genera créditos que se restan de tu factura mensual.</p></div></div>
+      <div class="info-card"><div class="ic-icon">📊</div><div><div class="ic-title">Dimensionamiento personalizado</div><p class="ic-text">El sistema ideal depende de tu consumo real, orientación del techo, espacio disponible y presupuesto. Cada proyecto es diferente.</p></div></div>
+      <div class="info-card"><div class="ic-icon">💳</div><div><div class="ic-title">Opciones de financiamiento</div><p class="ic-text">Ofrecemos créditos con pagos mensuales menores a tu ahorro actual en luz. En muchos casos, el sistema se paga solo desde el día uno.</p></div></div>
+      <div class="info-card"><div class="ic-icon">☀️</div><div><div class="ic-title">México: zona privilegiada</div><p class="ic-text">México recibe 5–6 horas pico de sol diarias en promedio — de las más altas del mundo. Esto maximiza la generación y acorta el ROI.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COBERTURA NACIONAL ══ -->
+<section id="cobertura">
+  <div class="s-tag">Presencia nacional</div>
+  <h2 class="s-title reveal">Cubrimos toda<br>la República Mexicana</h2>
+  <p class="s-sub reveal">Proyectos activos en más de 25 estados. El mismo nivel de servicio, garantía y certificación en cualquier punto del país.</p>
+  <div class="cob-layout">
+    <div>
+      <div class="states-grid stg" id="statesGrid">
+        <div class="stt on">CDMX</div><div class="stt on">Edo. Méx.</div><div class="stt on">Jalisco</div><div class="stt on">Nuevo León</div>
+        <div class="stt on">Puebla</div><div class="stt on">Guanajuato</div><div class="stt on">Chihuahua</div><div class="stt on">Veracruz</div>
+        <div class="stt on">Baja Cal.</div><div class="stt on">Sonora</div><div class="stt on">Tamaulipas</div><div class="stt on">Sinaloa</div>
+        <div class="stt on">Coahuila</div><div class="stt">Oaxaca</div><div class="stt">Chiapas</div><div class="stt on">Querétaro</div>
+        <div class="stt on">San Luis P.</div><div class="stt on">Yucatán</div><div class="stt">Guerrero</div><div class="stt on">Hidalgo</div>
+        <div class="stt">Morelos</div><div class="stt">Tabasco</div><div class="stt">Campeche</div><div class="stt">Qna. Roo</div>
+        <div class="stt on">Durango</div><div class="stt">Zacatecas</div><div class="stt on">Michoacán</div><div class="stt">Nayarit</div>
+        <div class="stt">Tlaxcala</div><div class="stt on">Aguascalientes</div><div class="stt">Colima</div><div class="stt">B.C. Sur</div>
+      </div>
+      <div class="cob-legend">
+        <div class="cob-legend-item">
+          <div class="cob-legend-sq" style="background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.5)"></div>
+          Con proyectos activos
+        </div>
+        <div class="cob-legend-item">
+          <div class="cob-legend-sq" style="background:var(--card);border:1px solid var(--bdr)"></div>
+          En expansión
+        </div>
+      </div>
+      <div class="co2-badge">
+        <div class="co2-dot"></div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:2px">CO₂ evitado hoy</div>
+          <div class="co2-badge-num"><span id="co2LiveCounter">0</span> kg</div>
+          <div class="co2-badge-lbl">contador en tiempo real · todas las instalaciones activas</div>
+        </div>
+      </div>
+    </div>
+    <div class="cob-stats">
+      <div class="cob-stat-big">
+        <div class="n">25+</div>
+        <div class="l">Estados con proyectos activos</div>
+        <div class="d">Desde Tijuana hasta Mérida — cubrimos toda la República con el mismo nivel de servicio, garantía y equipo certificado.</div>
+      </div>
+      <div class="cob-mini-grid">
+        <div class="cob-mini">
+          <div class="n">7K+</div>
+          <div class="l">Ton CO₂<br>evitadas totales</div>
+        </div>
+        <div class="cob-mini sky">
+          <div class="n">12M+</div>
+          <div class="l">kWh generados<br>al año</div>
+        </div>
+        <div class="cob-mini">
+          <div class="n">500+</div>
+          <div class="l">Proyectos<br>completados</div>
+        </div>
+        <div class="cob-mini">
+          <div class="n">10+</div>
+          <div class="l">Años de<br>experiencia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY PROYECTOS ══ -->
+<section id="proyectos" style="padding-bottom:0">
+  <div>
+    <div class="s-tag">Portafolio</div>
+    <h2 class="s-title reveal">Proyectos que<br>hablan por sí solos</h2>
+    <p class="s-sub reveal">Instalaciones reales con ahorros reales. Conoce algunos de nuestros proyectos destacados.</p>
+  </div>
+</section>
+<div class="gallery stg" style="padding:0 56px 56px">
+  <div class="g-item g1">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="Industrial">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Industrial</div><div class="g-title">Nave industrial — Manufactura</div><div class="g-meta">250 kWp · Ahorro $85,000/mes · ROI 2.8 años</div></div>
+  </div>
+  <div class="g-item g2">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=600&q=85" alt="Residencial">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Residencial</div><div class="g-title">Casa habitación CDMX</div><div class="g-meta">8 kWp · Ahorro $2,100/mes</div></div>
+  </div>
+  <div class="g-item g3">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&q=85" alt="Agro solar">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Agro</div><div class="g-title">Rancho Sonora — Riego solar</div><div class="g-meta">40 kWp · Sin recibo CFE</div></div>
+  </div>
+  <div class="g-item g4">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=85" alt="Comercial">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Comercial</div><div class="g-title">Centro comercial</div><div class="g-meta">60 kWp · Ahorro $18,000/mes</div></div>
+  </div>
+  <div class="g-item g5">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&q=85" alt="Paneles">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Residencial</div><div class="g-title">Fraccionamiento Querétaro</div><div class="g-meta">6 kWp · ROI 3.1 años</div></div>
+  </div>
+  <div class="g-item g6">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=500&q=85" alt="Solar campo">
+    <div class="g-overlay"></div>
+    <div class="g-info"><div class="g-tag">Industrial</div><div class="g-title">Planta Monterrey</div><div class="g-meta">180 kWp · Ahorro $62K/mes</div></div>
+  </div>
+</div>
+
+<!-- ══ IMAGE BREAK 2 ══ -->
+<div class="img-break">
+  <img loading="lazy" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=85" alt="Técnicos instalando">
+  <div class="img-break-overlay">
+    <div class="img-break-title">Técnicos <span>certificados</span> en cada instalación</div>
+    <p style="color:rgba(255,255,255,.7);font-size:.95rem;max-width:500px;text-align:center;line-height:1.7">
+      Todo nuestro equipo tiene certificaciones CONOCER vigentes en instalación y supervisión de sistemas fotovoltaicos.
+    </p>
+  </div>
+</div>
+
+<!-- ══ SPLIT — DIFERENCIADORES + CERTS ══ -->
+<section id="diferenciadores" style="padding:0">
+  <div class="split">
+    <div class="split-img">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=900&q=85" alt="Técnico solar">
+      <div class="split-img-overlay"></div>
+    </div>
+    <div class="split-content">
+      <div class="s-tag">¿Por qué ABCSolar?</div>
+      <h2 class="s-title reveal" style="margin-bottom:28px">Certificados.<br>Comprometidos.<br>Confiables.</h2>
+      <div class="diff-grid" style="margin-top:0">
+        <div>
+          <div class="s-tag" style="margin-bottom:12px;margin-top:0">Certificaciones</div>
+          <div class="cert-list">
+            <div class="cert-row">
+              <div class="cert-logo-img" style="background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;width:64px;height:48px;flex-shrink:0;border:1px solid var(--bdr)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/FIDE_logo.svg/200px-FIDE_logo.svg.png" alt="FIDE" style="width:48px;height:auto;object-fit:contain" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:.75rem;color:#0057A8\'>FIDE</span>'">
+              </div>
+              <div><div class="cert-name">Empresa Confiable FIDE</div><div class="cert-desc">Reg. 1845SFV — Diseño e instalación fotovoltaica en todas las tarifas</div></div>
+            </div>
+            <div class="cert-row">
+              <div class="cert-logo-img" style="background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;width:64px;height:48px;flex-shrink:0;border:1px solid var(--bdr)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/CONOCER_logo.svg/200px-CONOCER_logo.svg.png" alt="CONOCER" style="width:48px;height:auto;object-fit:contain" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:.65rem;color:#C8102E\'>CONOCER</span>'">
+              </div>
+              <div><div class="cert-name">EC0431</div><div class="cert-desc">Promoción del ahorro en sistemas energéticos de la vivienda</div></div>
+            </div>
+            <div class="cert-row">
+              <div class="cert-logo-img" style="background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;width:64px;height:48px;flex-shrink:0;border:1px solid var(--bdr)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/CONOCER_logo.svg/200px-CONOCER_logo.svg.png" alt="CONOCER" style="width:48px;height:auto;object-fit:contain" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:.65rem;color:#C8102E\'>CONOCER</span>'">
+              </div>
+              <div><div class="cert-name">EC586.01</div><div class="cert-desc">Instalación de sistemas fotovoltaicos en residencia, comercio e industria</div></div>
+            </div>
+            <div class="cert-row">
+              <div class="cert-logo-img" style="background:#fff;border-radius:8px;padding:6px;display:flex;align-items:center;justify-content:center;width:64px;height:48px;flex-shrink:0;border:1px solid var(--bdr)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/CONOCER_logo.svg/200px-CONOCER_logo.svg.png" alt="CONOCER" style="width:48px;height:auto;object-fit:contain" onerror="this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:.65rem;color:#C8102E\'>CONOCER</span>'">
+              </div>
+              <div><div class="cert-name">EC1181</div><div class="cert-desc">Supervisión de sistemas fotovoltaicos en residencia, comercio e industria</div></div>
+            </div>
+          </div>
+          <div class="s-tag" style="margin-top:20px;margin-bottom:10px">Miembro de</div>
+          <div class="members-grid">
+            <div class="member-card"><div class="member-icon">⭐</div><div class="member-name">AMIF</div><div class="member-sub">Asociación Mexicana de la Industria Fotovoltaica</div></div>
+            <div class="member-card"><div class="member-icon">⚡</div><div class="member-name">CPEF</div><div class="member-sub">Consejo de Profesionales en Energía Fotovoltaica</div></div>
+            <div class="member-card"><div class="member-icon">🤝</div><div class="member-name">AHK</div><div class="member-sub">Cámara Mexicano-Alemana de Comercio</div></div>
+          </div>
+        </div>
+        <div class="guarantee-panel">
+          <div class="guar-num">25</div>
+          <div class="guar-label">años de garantía en paneles</div>
+          <div class="guar-stats">
+            <div class="gs-item"><div class="gs-num">500+</div><div class="gs-label">Proyectos</div></div>
+            <div class="gs-item"><div class="gs-num">10+</div><div class="gs-label">Años</div></div>
+            <div class="gs-item"><div class="gs-num">98%</div><div class="gs-label">Satisfacción</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLIENTES ══ -->
+<section id="clientes">
+  <div class="s-tag clients-top">Nuestros clientes</div>
+  <h2 class="s-title reveal clients-top">Cientos de empresas<br>generan su propia energía</h2>
+  <p class="s-sub reveal clients-top" style="margin-bottom:0">Más de 500 proyectos completados en residencial, comercial e industrial. Desde PyMES locales hasta grandes corporativos confían en ABCSolar para su transición energética.</p>
+  
+  <div style="margin-top:48px;padding:32px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:12px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto">
+    <div style="font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:12px">🔐 Acuerdo de Confidencialidad</div>
+    <p style="color:var(--t2);font-size:.95rem;line-height:1.6;margin:0">
+      Respetamos la privacidad de nuestros clientes. Los nombres y detalles específicos de proyectos se mantienen bajo acuerdo de confidencialidad. 
+      <strong>La seguridad de tus datos es nuestra prioridad.</strong> Puedes solicitar referencias directas de clientes con tu perfil escribiendo a contacto@abcsolar.com.mx
+    </p>
+  </div>
+
+  <div class="clients-stats stg" style="margin-top:48px">
+    <div class="cstat"><div class="cstat-n">60%</div><div class="cstat-l">Clientes residenciales</div></div>
+    <div class="cstat"><div class="cstat-n">30%</div><div class="cstat-l">Clientes comerciales</div></div>
+    <div class="cstat"><div class="cstat-n">10%</div><div class="cstat-l">Clientes industriales</div></div>
+    <div class="cstat"><div class="cstat-n">98%</div><div class="cstat-l">Los recomendarían</div></div>
+  </div>
+</section>
+
+<!-- ══ ANTES / DESPUÉS RECIBO CFE ══ -->
+<section id="antes-despues">
+  <div class="s-tag">Resultado real</div>
+  <h2 class="s-title reveal">Así cambia tu recibo<br>de CFE con ABCSolar</h2>
+  <p class="s-sub reveal">El caso real de un cliente residencial con tarifa DAC en CDMX. Los números son reales — la diferencia es tuya.</p>
+  <div class="bill-wrap">
+    <div class="bill-card bill-antes reveal-l">
+      <div class="bill-head">
+        <div class="bill-head-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <div class="bill-head-title">Sin paneles solares</div>
+          <div class="bill-head-sub">Recibo CFE actual</div>
+        </div>
+      </div>
+      <div class="bill-body">
+        <div class="bill-amount">$5,200</div>
+        <div class="bill-period">mensual · bimestral $10,400</div>
+        <div class="bill-rows">
+          <div class="bill-row"><span>Consumo (1,200 kWh)</span><span>$4,680</span></div>
+          <div class="bill-row"><span>Cargo fijo CFE</span><span>$340</span></div>
+          <div class="bill-row"><span>IVA (16%)</span><span>$180</span></div>
+          <div class="bill-row"><span>Total mensual</span><span>$5,200</span></div>
+        </div>
+        <div style="margin-top:12px;padding:10px 12px;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.2);border-radius:8px;font-size:.78rem;color:#DC2626">
+          Al año pagas: <strong>$62,400</strong> — y la tarifa sube cada año.
+        </div>
+      </div>
+    </div>
+    <div class="bill-arrow-col reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 19 12"/><polyline points="13 6 19 12 13 18"/></svg>
+      <span>CON<br>SOLAR</span>
+    </div>
+    <div class="bill-card bill-despues reveal-r">
+      <div class="bill-head">
+        <div class="bill-head-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        </div>
+        <div>
+          <div class="bill-head-title">Con ABCSolar instalado</div>
+          <div class="bill-head-sub">Sistema 8 kWp · $148,000 inversión</div>
+        </div>
+      </div>
+      <div class="bill-body">
+        <div class="bill-amount">$320</div>
+        <div class="bill-period">mensual · solo cargos fijos CFE</div>
+        <div class="bill-rows">
+          <div class="bill-row"><span>Energía solar generada</span><span style="color:#22C55E">1,100 kWh</span></div>
+          <div class="bill-row"><span>Energía CFE restante</span><span>100 kWh</span></div>
+          <div class="bill-row"><span>Cargo fijo CFE</span><span>$275</span></div>
+          <div class="bill-row savings"><span>Ahorro mensual</span><span>$4,880</span></div>
+        </div>
+        <div class="bill-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          ROI en 30 meses · $58,560 ahorrados al año
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIOS ══ -->
+<section id="testimonios">
+  <div class="s-tag">Lo que dicen</div>
+  <h2 class="s-title reveal">Clientes que ya<br>están ahorrando</h2>
+  <div class="test-track stg" id="testTrack">
+    <div class="test-card">
+      <img class="test-card-img" loading="lazy" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=760&q=80" alt="Proyecto residencial CDMX">
+      <div class="test-card-body">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Mi recibo era de $4,800 mensuales. Hoy pago prácticamente $0. ABCSolar cumplió exactamente lo que prometió y el proceso fue muy sencillo."</p>
+        <div class="test-author"><div class="test-av">MR</div><div><div class="test-name">Miguel Ramírez</div><div class="test-role">Propietario residencial, CDMX</div></div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <img class="test-card-img" loading="lazy" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=760&q=80" alt="Proyecto comercial empresa">
+      <div class="test-card-body">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Instalamos 80 kWp en nuestra empresa y los ahorros superaron las proyecciones desde el primer bimestre. La atención fue excelente."</p>
+        <div class="test-author"><div class="test-av">LC</div><div><div class="test-name">Laura Castillo</div><div class="test-role">Directora, Grupo Castillo Comercial</div></div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <img class="test-card-img" loading="lazy" src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=760&q=80" alt="Proyecto industrial nave">
+      <div class="test-card-body">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Lo que más valoro es el acompañamiento después de la instalación. Siempre tienen alguien disponible y el sistema lleva 2 años sin un problema."</p>
+        <div class="test-author"><div class="test-av">JA</div><div><div class="test-name">Jorge Alvarado</div><div class="test-role">Gerente de planta, Industria Noreste</div></div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <img class="test-card-img" loading="lazy" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=760&q=80" alt="Proyecto solar campo">
+      <div class="test-card-body">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"El diagnóstico fue rápido y la propuesta muy clara. En 3 semanas ya tenía el sistema instalado y funcionando. Totalmente recomendados."</p>
+        <div class="test-author"><div class="test-av">PC</div><div><div class="test-name">Patricia Cruz</div><div class="test-role">Dueña, Restaurante La Hacienda</div></div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <img class="test-card-img" loading="lazy" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=760&q=80" alt="Paneles solares instalados">
+      <div class="test-card-body">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Tenía miedo de que fuera complicado el trámite con CFE, pero ellos hicieron todo. Solo recibí la llamada de que ya estaba listo."</p>
+        <div class="test-author"><div class="test-av">HV</div><div><div class="test-name">Héctor Vargas</div><div class="test-role">Propietario residencial, Sonora</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="test-nav">
+    <button onclick="scrollTest(-1)" aria-label="Testimonio anterior">←</button>
+    <button onclick="scrollTest(1)" aria-label="Siguiente testimonio">→</button>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="s-tag">Preguntas frecuentes</div>
+  <h2 class="s-title reveal" style="text-align:center">Resolvemos<br>tus dudas</h2>
+  <div class="faq-wrap reveal">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda la instalación?<div class="faq-tog">+</div></div><div class="faq-a">Residencial: 1–3 días hábiles. Comercial: 1–2 semanas. Industrial: 2–6 semanas según capacidad. Incluye gestión completa de permisos con CFE.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Funciona en días nublados?<div class="faq-tog">+</div></div><div class="faq-a">Sí. Los paneles generan energía con luz difusa, no solo con sol directo. En días nublados la eficiencia baja un 15–25%, pero el sistema sigue produciendo. La red de CFE actúa como respaldo automático.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Necesito hacer trámites con CFE?<div class="faq-tog">+</div></div><div class="faq-a">Nosotros nos encargamos de todo: estudio de interconexión, solicitud de contrato y seguimiento con CFE. Tú no mueves un dedo.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Tienen opciones de financiamiento?<div class="faq-tog">+</div></div><div class="faq-a">Sí. Tenemos esquemas propios y alianzas con instituciones bancarias. En muchos casos, la mensualidad del crédito es menor al ahorro mensual, haciendo la inversión neutra o positiva desde el día uno.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si la luz se va?<div class="faq-tog">+</div></div><div class="faq-a">Los sistemas interconectados a CFE se apagan automáticamente durante cortes (medida de seguridad para los trabajadores de CFE). Si necesitas respaldo durante apagones, podemos agregar un sistema de baterías.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Cuánto mantenimiento requiere?<div class="faq-tog">+</div></div><div class="faq-a">Mínimo. Recomendamos limpieza 1–2 veces al año y revisión técnica anual. Ofrecemos planes de mantenimiento preventivo para que no te preocupes por nada.</div></div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto">
+  <div class="contact-wrap">
+    <div class="reveal-l">
+      <div class="s-tag">Cotización gratuita</div>
+      <h2 class="contact-title">Empieza a ahorrar.<br>Sin excusas.</h2>
+      <p class="contact-sub">Un asesor te contactará en menos de 24 horas con una propuesta personalizada y sin compromiso de compra.</p>
+      <div class="check-list">
+        <div class="check-item">Diagnóstico energético sin costo</div>
+        <div class="check-item">Propuesta con ROI detallado</div>
+        <div class="check-item">Sin letra chica, sin presión</div>
+        <div class="check-item">Respuesta garantizada en 24 horas</div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <form class="form" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="ff"><label>Nombre completo *</label><input type="text" placeholder="Tu nombre" required></div>
+          <div class="ff"><label>Teléfono *</label><input type="tel" placeholder="55 1234 5678" required></div>
+        </div>
+        <div class="ff"><label>Correo electrónico *</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+        <div class="form-row">
+          <div class="ff"><label>Tipo de instalación</label><select><option>Casa habitación</option><option>Negocio/Empresa</option><option>Industrial</option><option>Otro</option></select></div>
+          <div class="ff"><label>Recibo mensual (aprox.)</label><select><option>Menos de $1,000</option><option>$1,000 – $3,000</option><option>$3,000 – $10,000</option><option>$10,000 – $50,000</option><option>Más de $50,000</option></select></div>
+        </div>
+        <div class="ff"><label>Mensaje (opcional)</label><textarea rows="3" placeholder="Cuéntanos sobre tu proyecto..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:1rem" id="submitBtn">Quiero mi cotización gratis →</button>
+        <p class="form-note">🔒 Tu información es confidencial. Sin spam, nunca.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="public/images/placeholder.jpg" id="footerLogo" alt="ABCSolar"></div>
+      <p class="footer-desc">Tu aliado en energía solar. Instalamos sistemas fotovoltaicos para hogares, empresas e industrias con las mejores garantías del mercado.</p>
+      <div class="footer-social">
+        <a href="#" class="soc-link" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="#" class="soc-link" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#" class="soc-link" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" class="soc-link" title="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Soluciones</div>
+      <ul class="footer-links">
+        <li><a href="#para-quien">Solar Residencial</a></li>
+        <li><a href="#para-quien">Solar Comercial</a></li>
+        <li><a href="#para-quien">Solar Industrial</a></li>
+        <li><a href="#faq">Financiamiento</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Empresa</div>
+      <ul class="footer-links">
+        <li><a href="#diferenciadores">Nosotros</a></li>
+        <li><a href="#diferenciadores">Certificaciones</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#diferenciadores">Garantías</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="tel:+527226209410">📞 (55) 1234-5678</a></li>
+        <li><a href="mailto:contacto@abcsolar.com.mx">✉️ contacto@abcsolar.com.mx</a></li>
+        <li><a href="#contacto">📍 Ciudad de México</a></li>
+        <li><a href="https://wa.me/527226209410" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ABCSolar. Todos los derechos reservados.</span>
+    <div style="display:flex;gap:20px">
+      <a href="#" style="color:var(--t2);font-size:.78rem">Aviso de privacidad</a>
+      <a href="#" style="color:var(--t2);font-size:.78rem">Términos de servicio</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA BAR -->
+<div class="mob-cta-bar" id="mobCtaBar">
+  <a href="https://wa.me/527226209410?text=Hola%2C%20me%20interesa%20cotizar%20paneles%20solares." target="_blank" rel="noopener" class="btn-wa" aria-label="Contactar por WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="#contacto" class="btn-quote" aria-label="Solicitar cotización gratis">Cotización gratis →</a>
+</div>
+
+<!-- FLOAT BUTTONS -->
+<div class="floats">
+  <a href="https://wa.me/527226209410?text=Hola%2C%20me%20contacto%20desde%20su%20p%C3%A1gina%20web%20www.abcsolar.com.mx%20y%20quisiera%20información%20sobre%20paneles%20solares." target="_blank" rel="noopener" class="float-btn fb-wa">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+527226209410" class="float-btn fb-call">📞 Llamar</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT — Inline (global functions + all interactions)
+══════════════════════════════════════════════════════════ -->
+<script>
+/* ══ THEME ══ */
+const html = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+
+(function () {
+  const s = localStorage.getItem('abc-theme');
+  const pref = window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark';
+  applyTheme(s || pref);
+})();
+
+window.matchMedia('(prefers-color-scheme:light)').addEventListener('change', e => {
+  if (!localStorage.getItem('abc-theme')) applyTheme(e.matches ? 'light' : 'dark');
+});
+
+function applyTheme(t) {
+  html.setAttribute('data-theme', t);
+  if (themeBtn) themeBtn.textContent = t === 'dark' ? '🌙' : '☀️';
+  ['navLogo', 'footerLogo'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.filter = t === 'dark' ? 'brightness(0) invert(1)' : 'brightness(0)';
+  });
+}
+
+function toggleTheme() {
+  const cur = html.getAttribute('data-theme'), n = cur === 'dark' ? 'light' : 'dark';
+  applyTheme(n);
+  localStorage.setItem('abc-theme', n);
+}
+
+/* ══ NAV SLIM ON SCROLL ══ */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('slim', scrollY > 40);
+}, { passive: true });
+
+/* ══ MOBILE MENU ══ */
+function openMob() {
+  document.getElementById('mobMenu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMob() {
+  document.getElementById('mobMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ══ TABS (Para quién) ══ */
+function setTab(i) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab' + i).classList.add('active');
+  document.querySelectorAll('.tab-btn')[i].classList.add('active');
+}
+
+/* ══ TESTIMONIOS SCROLL ══ */
+function scrollTest(dir) {
+  const t = document.getElementById('testTrack');
+  t.scrollBy({ left: dir * 380, behavior: 'smooth' });
+}
+
+/* ══ FAQ ══ */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+/* ══ FORM → WHATSAPP ══ */
+function submitForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const b = document.getElementById('submitBtn');
+  b.classList.add('btn-submitting');
+  b.disabled = true;
+  b.innerHTML = '<span class="submit-spinner"></span> Enviando...';
+  const nombre = form.querySelector('input[type="text"]')?.value || '';
+  const telefono = form.querySelector('input[type="tel"]')?.value || '';
+  const correo = form.querySelector('input[type="email"]')?.value || '';
+  const tipo = form.querySelectorAll('select')[0]?.value || '';
+  const recibo = form.querySelectorAll('select')[1]?.value || '';
+  const mensaje = form.querySelector('textarea')?.value || '';
+  const waMsg = `Hola, me contacto desde su página web www.abcsolar.com.mx.%0A%0A*Datos de contacto:*%0ANombre: ${encodeURIComponent(nombre)}%0ATeléfono: ${encodeURIComponent(telefono)}%0ACorreo: ${encodeURIComponent(correo)}%0ATipo: ${encodeURIComponent(tipo)}%0ARecibo mensual: ${encodeURIComponent(recibo)}%0AMensaje: ${encodeURIComponent(mensaje) || 'Sin mensaje adicional'}`;
+  setTimeout(() => {
+    window.open('https://wa.me/527226209410?text=' + waMsg, '_blank');
+    b.classList.remove('btn-submitting');
+    b.classList.add('btn-success');
+    b.innerHTML = '&#10003; ¡Listo! Te contactamos muy pronto';
+    setTimeout(() => {
+      b.classList.remove('btn-success');
+      b.innerHTML = 'Quiero mi cotización gratis →';
+      b.disabled = false;
+      form.reset();
+    }, 4000);
+  }, 900);
+}
+
+/* ══ CALCULADORA SOLAR ══ */
+const TARIFAS = {
+  residencial:     { kwh: 2.20, nota: '⚡ Tarifa 1/DAC: subsidio escalonado. Bajo consumo ≈ $1.00/kWh; al pasar a DAC sube a $4–$7/kWh. Promedio ponderado típico mostrado.' },
+  comercial_pdbt:  { kwh: 4.00, nota: '🏪 PDBT (hasta 25 kW): tarifa más común en negocios pequeños y medianos. Sin subsidio. Promedio nacional 2025: ~$4.00/kWh.' },
+  comercial_gdbt:  { kwh: 4.20, nota: '🏢 GDBT (>25 kW baja tensión): tarifa para negocios con alta demanda. Incluye cargo por demanda + consumo. ~$3.50–$4.80/kWh.' },
+  industrial_gdmto:{ kwh: 3.20, nota: '🏭 GDMTO (media tensión ordinaria): tarifa industrial sin diferenciación horaria. ~$2.80–$3.80/kWh según región.' },
+  industrial_gdmth:{ kwh: 5.20, nota: '⚡ GDMTH (horaria): precios diferenciados. Punta: $5–$6.50/kWh. Solar elimina consumo en horas punta, máximo ahorro.' },
+};
+const KW_PANEL = 0.6, M2 = 2.4, HSP = 5.5, CO2F = 0.582, CO2A = 22;
+const CKWP = { residencial: 18500, comercial_pdbt: 16000, comercial_gdbt: 15000, industrial_gdmto: 14000, industrial_gdmth: 13500 };
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString('es-MX'); }
+
+function calcular() {
+  const recibo = parseFloat(document.getElementById('recibo').value) || 0;
+  const tipo = document.getElementById('tipo').value;
+  const pct = parseInt(document.getElementById('pct').value);
+  const pctLbl = document.getElementById('pct-lbl');
+  if (pctLbl) pctLbl.textContent = pct + '%';
+  const sl = document.getElementById('pct');
+  const pv = ((pct - 40) / 60) * 100;
+  sl.style.background = `linear-gradient(to right,var(--sun) 0%,var(--sun) ${pv}%,var(--bdr) ${pv}%,var(--bdr) 100%)`;
+  const t = TARIFAS[tipo] || TARIFAS.residencial;
+  const tnEl = document.getElementById('tariff-note');
+  if (tnEl) tnEl.textContent = t.nota;
+  if (recibo <= 0) return;
+  const ahorroMes = recibo * (pct / 100), ahorroA = ahorroMes * 12, costoA = recibo * 12;
+  const kwhNec = (recibo / t.kwh) * (pct / 100);
+  const kWp = (kwhNec / 30) / HSP;
+  const paneles = Math.max(1, Math.ceil(kWp / KW_PANEL));
+  const cap = (paneles * KW_PANEL).toFixed(1), esp = (paneles * M2).toFixed(1);
+  const inv = parseFloat(cap) * (CKWP[tipo] || 18500);
+  const roi = ahorroMes > 0 ? (inv / ahorroMes / 12).toFixed(1) : '—';
+  const co2 = Math.round(kwhNec * 12 * CO2F);
+  const arb = (co2 / CO2A).toFixed(1);
+  document.getElementById('rc-mensual').textContent = fmt(recibo);
+  document.getElementById('rc-anual').textContent = fmt(costoA) + '/año';
+  document.getElementById('rc-ahorro').textContent = fmt(ahorroMes);
+  document.getElementById('rc-ahorro-a').textContent = fmt(ahorroA) + '/año';
+  document.getElementById('rc-co2').textContent = co2 + ' kg';
+  document.getElementById('rc-arb').textContent = '≈ ' + arb + ' árboles/año';
+  document.getElementById('r-paneles').textContent = paneles;
+  document.getElementById('r-cap').textContent = cap;
+  document.getElementById('r-esp').textContent = esp;
+  document.getElementById('r-roi').textContent = roi;
+}
+
+/* ══ INIT CALCULATOR & RANGE SLIDER ══ */
+calcular();
+setTimeout(() => {
+  const s = document.getElementById('pct');
+  if (s) {
+    const v = ((parseInt(s.value) - 40) / 60) * 100;
+    s.style.background = `linear-gradient(to right,var(--sun) 0%,var(--sun) ${v}%,var(--bdr) ${v}%,var(--bdr) 100%)`;
+  }
+  const tn = document.getElementById('tariff-note');
+  if (tn) tn.textContent = TARIFAS.residencial.nota;
+}, 80);
+
+/* ══ SCROLL REVEAL ══ */
+const revObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); }
+}), { threshold: 0.07 });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r, .stg').forEach(el => revObs.observe(el));
+
+/* ══ COUNT UP ══ */
+const cObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { animCount(e.target); cObs.unobserve(e.target); }
+}), { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => cObs.observe(el));
+
+function animCount(el) {
+  const t = parseInt(el.dataset.target), d = 1800, step = t / (d / 16);
+  let c = 0;
+  const ti = setInterval(() => {
+    c += step;
+    if (c >= t) { c = t; clearInterval(ti); }
+    el.textContent = Math.floor(c);
+  }, 16);
+}
+
+/* ══ VIDEO MODAL ══ */
+const YOUTUBE_VIDEO_ID = ''; // Reemplaza con tu ID de YouTube (ej. 'dQw4w9WgXcQ')
+(function () {
+  const modal = document.getElementById('videoModal');
+  const frame = document.getElementById('videoFrame');
+  const closeBtn = modal.querySelector('.video-modal-close');
+
+  function doClose() {
+    frame.src = '';
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modal.addEventListener('click', e => { if (e.target === modal) doClose(); });
+  closeBtn.addEventListener('click', doClose);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) doClose();
+  });
+
+  window.openVideoModal = function () {
+    if (YOUTUBE_VIDEO_ID) {
+      frame.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`;
+    }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  };
+})();
+
+/* ══ CO₂ LIVE COUNTER ══ */
+(function () {
+  // 12M kWh/año × 0.582 kg CO2/kWh ÷ 365 ÷ 86400 = 0.221 kg CO2/seg
+  const CO2_PER_SEC = 0.221;
+  const now = new Date();
+  const secToday = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+  let co2 = secToday * CO2_PER_SEC;
+  const el = document.getElementById('co2LiveCounter');
+  if (!el) return;
+  const prefersRM = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  el.textContent = Math.floor(prefersRM ? co2 + CO2_PER_SEC * 43200 : co2).toLocaleString('es-MX');
+  if (prefersRM) return;
+  setInterval(() => {
+    co2 += CO2_PER_SEC;
+    el.textContent = Math.floor(co2).toLocaleString('es-MX');
+  }, 1000);
+})();
+
+/* ══ STATES ANIMATION (staggered reveal) ══ */
+const _rm = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+const stateObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) {
+    const states = e.target.querySelectorAll('.stt.on');
+    if (_rm) { states.forEach(s => s.style.opacity = '1'); }
+    else { states.forEach((s, i) => setTimeout(() => s.style.opacity = '1', i * 40)); }
+    stateObs.unobserve(e.target);
+  }
+}), { threshold: 0.1 });
+const sg = document.getElementById('statesGrid');
+if (sg) {
+  if (!_rm) sg.querySelectorAll('.stt.on').forEach(s => s.style.opacity = '0');
+  stateObs.observe(sg);
+}
+</script>
+
+</body>
+</html>

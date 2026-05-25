@@ -1,0 +1,140 @@
+/* ══════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Dark & Light Themes
+   Centralized color, spacing, typography, and shadow definitions
+═════════════════════════════════════════════════════════════════════ */
+
+:root,
+[data-theme="dark"] {
+  /* Primary Colors */
+  --sun: #F59E0B;
+  --sun-d: #D97706;
+  --sun-glow: rgba(245, 158, 11, 0.25);
+
+  /* Secondary Colors */
+  --sky: #38BDF8;
+  --sky-d: #0EA5E9;
+
+  /* Backgrounds */
+  --bg0: #04080F;
+  --bg1: #080E1C;
+  --bg2: #0C1526;
+  --bg3: #101D33;
+
+  /* Cards & Surfaces */
+  --card: #0F1B30;
+  --card2: #132038;
+
+  /* Inputs & Borders */
+  --inp: rgba(56, 189, 248, 0.07);
+  --bdr: rgba(56, 189, 248, 0.10);
+  --bdr-g: rgba(245, 158, 11, 0.28);
+
+  /* Text Colors */
+  --t0: #EFF6FF;
+  --t1: #93B8D4;
+  --t2: #4A6E8A;
+  --tinv: #04080F;
+
+  /* UI Elements */
+  --nav-bg: rgba(4, 8, 15, 0.90);
+
+  /* Shadows */
+  --shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+  --shadow-s: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Gradients */
+  --g1: rgba(245, 158, 11, 0.12);
+  --g2: rgba(56, 189, 248, 0.08);
+}
+
+[data-theme="light"] {
+  /* Primary Colors */
+  --sun: #D97706;
+  --sun-d: #B45309;
+  --sun-glow: rgba(217, 119, 6, 0.20);
+
+  /* Secondary Colors */
+  --sky: #0EA5E9;
+  --sky-d: #0284C7;
+
+  /* Backgrounds */
+  --bg0: #F8FAFD;
+  --bg1: #FFFFFF;
+  --bg2: #F0F6FB;
+  --bg3: #E8F2FA;
+
+  /* Cards & Surfaces */
+  --card: #FFFFFF;
+  --card2: #F4F9FE;
+
+  /* Inputs & Borders */
+  --inp: rgba(14, 165, 233, 0.06);
+  --bdr: rgba(14, 165, 233, 0.15);
+  --bdr-g: rgba(14, 165, 233, 0.30);
+
+  /* Text Colors */
+  --t0: #0A1929;
+  --t1: #1E3A52;
+  --t2: #4A7090;
+  --tinv: #FFFFFF;
+
+  /* UI Elements */
+  --nav-bg: rgba(248, 250, 253, 0.92);
+
+  /* Shadows */
+  --shadow: 0 8px 32px rgba(14, 165, 233, 0.12);
+  --shadow-s: 0 2px 12px rgba(14, 165, 233, 0.10);
+
+  /* Gradients */
+  --g1: rgba(14, 165, 233, 0.07);
+  --g2: rgba(245, 158, 11, 0.06);
+}
+
+/* Typography */
+:root {
+  --ff-body: 'Outfit', sans-serif;
+  --ff-display: 'Playfair Display', serif;
+
+  --fs-base: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+}
+
+/* Spacing Scale */
+:root {
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+  --space-5xl: 48px;
+  --space-6xl: 56px;
+  --space-7xl: 64px;
+}
+
+/* Border Radius */
+:root {
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 100px;
+}
+
+/* Transitions */
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}

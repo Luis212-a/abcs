@@ -1,0 +1,209 @@
+/* ══════════════════════════════════════════════════════════════════════
+   ANIMATIONS — Keyframes & Motion
+═════════════════════════════════════════════════════════════════════ */
+
+/* Fade Up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.6);
+  }
+}
+
+.pulse {
+  animation: pulse 1.6s infinite;
+}
+
+/* Reveal Elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-l {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-l.on {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-r {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-r.on {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered Animation */
+.stg > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stg.on > *:nth-child(1) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.05s;
+}
+
+.stg.on > *:nth-child(2) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.13s;
+}
+
+.stg.on > *:nth-child(3) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.21s;
+}
+
+.stg.on > *:nth-child(4) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.29s;
+}
+
+.stg.on > *:nth-child(5) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.37s;
+}
+
+.stg.on > *:nth-child(6) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.45s;
+}
+
+.stg.on > *:nth-child(7) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.53s;
+}
+
+.stg.on > *:nth-child(8) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.61s;
+}
+
+.stg.on > *:nth-child(n+9) {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.69s;
+}
+
+/* Scroll Bounce */
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Play Pulse */
+@keyframes playPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+  60% {
+    box-shadow: 0 0 0 18px rgba(245, 158, 11, 0);
+  }
+}
+
+.play-pulse {
+  animation: playPulse 2.4s ease-in-out infinite;
+}
+
+/* Marquee Scroll */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marqueeScroll 50s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 42s;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Spin */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 0.7s linear infinite;
+}
+
+/* Video Modal Fade */
+@keyframes vmFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.vm-fade-in {
+  animation: vmFadeIn 0.25s ease;
+}

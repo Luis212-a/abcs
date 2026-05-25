@@ -1,0 +1,69 @@
+/* ══════════════════════════════════════════════════════════════════════
+   BASE STYLES — Reset & Foundations
+═════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--bg0);
+  color: var(--t1);
+  overflow-x: hidden;
+  transition: background var(--transition-normal), color var(--transition-normal);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-display);
+  color: var(--t0);
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+button {
+  font-family: var(--ff-body);
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--ff-body);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
