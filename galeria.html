@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Proyectos | ABCSolar</title>
+  <meta name="description" content="Conoce nuestros proyectos solares completados. +500 instalaciones de éxito en residencial, comercial e industrial.">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .gallery-full {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 16/10;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sun);
+      margin-bottom: 8px;
+    }
+
+    .gallery-item-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .gallery-item-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 40px 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      border: 2px solid var(--bdr);
+      border-radius: 24px;
+      background: transparent;
+      color: var(--t1);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--sun);
+      color: white;
+      border-color: var(--sun);
+    }
+
+    .gallery-stats {
+      text-align: center;
+      padding: 40px 56px;
+      color: var(--t2);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-full {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .filter-buttons {
+        padding: 20px;
+      }
+
+      .gallery-stats {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo"><img src="public/logo-abc-full.png" id="navLogo" alt="ABCSolar" style="height:48px;width:auto;object-fit:contain"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#beneficios">Beneficios</a></li>
+      <li><a href="index.html#calculadora">Calculadora</a></li>
+      <li><a href="index.html#para-quien">Soluciones</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <button class="ham" onclick="openMob()"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobMenu" class="mob-menu">
+    <a href="index.html#beneficios" onclick="closeMob()">Beneficios</a>
+    <a href="index.html#calculadora" onclick="closeMob()">Calculadora</a>
+    <a href="index.html#para-quien" onclick="closeMob()">Soluciones</a>
+    <a href="galeria.html" onclick="closeMob()">Galería</a>
+    <a href="index.html#contacto" onclick="closeMob()">Contacto</a>
+  </div>
+
+  <!-- HERO -->
+  <section style="padding:120px 56px;text-align:center;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(56,189,248,.05))">
+    <h1 style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;margin-bottom:16px">Nuestros Proyectos</h1>
+    <p style="font-size:1.2rem;color:var(--t2);max-width:600px;margin:0 auto">
+      Conoce las historias de éxito de nuestros clientes. Más de 500 instalaciones solares completadas en residencial, comercial e industrial.
+    </p>
+  </section>
+
+  <!-- FILTROS -->
+  <div class="filter-buttons">
+    <button class="filter-btn active" onclick="filterGallery('all')">Todos</button>
+    <button class="filter-btn" onclick="filterGallery('residencial')">Residencial</button>
+    <button class="filter-btn" onclick="filterGallery('comercial')">Comercial</button>
+    <button class="filter-btn" onclick="filterGallery('industrial')">Industrial</button>
+  </div>
+
+  <!-- GALERÍA -->
+  <div class="gallery-full">
+    <!-- Residencial -->
+    <div class="gallery-item residencial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" alt="Casa con vista panorámica">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Residencial</div>
+        <div class="gallery-item-title">Casa con vista panorámica</div>
+        <div class="gallery-item-desc">Instalación en zona premium con vista despejada</div>
+      </div>
+    </div>
+
+    <div class="gallery-item residencial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-residencial-2.jpg" alt="Casa moderna con paneles">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Residencial</div>
+        <div class="gallery-item-title">Casa moderna</div>
+        <div class="gallery-item-desc">Integración perfecta de paneles solares</div>
+      </div>
+    </div>
+
+    <div class="gallery-item residencial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-residencial-3.jpg" alt="Vivienda residencial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Residencial</div>
+        <div class="gallery-item-title">Vivienda residencial</div>
+        <div class="gallery-item-desc">Sistema de energía limpia para el hogar</div>
+      </div>
+    </div>
+
+    <!-- Comercial -->
+    <div class="gallery-item comercial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" alt="Instalación comercial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Comercial</div>
+        <div class="gallery-item-title">Espacio comercial grande</div>
+        <div class="gallery-item-desc">Instalación a gran escala para negocios</div>
+      </div>
+    </div>
+
+    <div class="gallery-item comercial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-comercial-2.jpg" alt="Edificio comercial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Comercial</div>
+        <div class="gallery-item-title">Edificio comercial</div>
+        <div class="gallery-item-desc">Múltiples paneles para máxima producción</div>
+      </div>
+    </div>
+
+    <div class="gallery-item comercial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-comercial-3.jpg" alt="Centro comercial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Comercial</div>
+        <div class="gallery-item-title">Centro comercial</div>
+        <div class="gallery-item-desc">Solución integral para negocios múltiples</div>
+      </div>
+    </div>
+
+    <!-- Industrial -->
+    <div class="gallery-item industrial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-industrial-1.jpg" alt="Instalación industrial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Industrial</div>
+        <div class="gallery-item-title">Nave industrial</div>
+        <div class="gallery-item-desc">Sistema de alta capacidad para manufactura</div>
+      </div>
+    </div>
+
+    <div class="gallery-item industrial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-industrial-2.jpg" alt="Planta industrial">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Industrial</div>
+        <div class="gallery-item-title">Planta industrial</div>
+        <div class="gallery-item-desc">Generación de energía a escala industrial</div>
+      </div>
+    </div>
+
+    <!-- Techos -->
+    <div class="gallery-item residencial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-techo-1.jpg" alt="Instalación en techo">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Residencial</div>
+        <div class="gallery-item-title">Instalación en techo</div>
+        <div class="gallery-item-desc">Aprovechamiento máximo del espacio disponible</div>
+      </div>
+    </div>
+
+    <div class="gallery-item residencial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-techo-2.jpg" alt="Techo solar">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Residencial</div>
+        <div class="gallery-item-title">Sistema en techo</div>
+        <div class="gallery-item-desc">Instalación profesional y limpia</div>
+      </div>
+    </div>
+
+    <!-- Detalles -->
+    <div class="gallery-item industrial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-detalle-1.jpg" alt="Detalle técnico">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Industrial</div>
+        <div class="gallery-item-title">Detalle de paneles</div>
+        <div class="gallery-item-desc">Calidad y precisión en cada instalación</div>
+      </div>
+    </div>
+
+    <div class="gallery-item comercial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-panel-detalle.jpg" alt="Paneles en detalle">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Comercial</div>
+        <div class="gallery-item-title">Paneles profesionales</div>
+        <div class="gallery-item-desc">Tecnología de punta en cada proyecto</div>
+      </div>
+    </div>
+
+    <div class="gallery-item comercial" onclick="viewImage(this)">
+      <img loading="lazy" src="assets/images/projects/proyecto-instalacion-1.jpg" alt="Proceso de instalación">
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-category">Comercial</div>
+        <div class="gallery-item-title">Instalación profesional</div>
+        <div class="gallery-item-desc">Técnicos certificados en cada proyecto</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTADÍSTICAS -->
+  <div class="gallery-stats">
+    <div style="font-size:2rem;font-weight:900;color:var(--sun);margin-bottom:8px">+500</div>
+    <div style="font-size:1.1rem;font-weight:600">Proyectos completados con éxito</div>
+    <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--bdr)">
+      <p>Todos nuestros proyectos cuentan con garantía de 25 años y monitoreo remoto permanente. ¿Listo para transformar tu energía?</p>
+      <a href="index.html#contacto" class="btn-primary" style="margin-top:20px;display:inline-block">Solicita una cotización →</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid stg">
+      <div>
+        <div class="footer-logo"><img src="public/logo-abc-icon.png" id="footerLogo" alt="ABCSolar" style="height:60px;width:auto;object-fit:contain"></div>
+        <p style="color:var(--t2);margin-top:16px;font-size:.95rem">Tu aliado en energía solar. Instalaciones profesionales con garantía real y atención post-venta activa.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegación</div>
+        <ul class="footer-links">
+          <li><a href="index.html#beneficios">Beneficios</a></li>
+          <li><a href="index.html#para-quien">Soluciones</a></li>
+          <li><a href="index.html#calculadora">Calculadora</a></li>
+          <li><a href="galeria.html">Galería de proyectos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contacto</div>
+        <ul class="footer-links">
+          <li><a href="tel:+527226220941">📞 7226220941</a></li>
+          <li><a href="mailto:contacto@abcsolar.com.mx">✉️ contacto@abcsolar.com.mx</a></li>
+          <li><a href="#contacto">📍 Toluca, Estado de México</a></li>
+          <li><a href="https://wa.me/527226220941" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Síguenos</div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ABCSTechnologies" target="_blank" rel="noopener" class="soc-link" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/abcsolar_/" target="_blank" rel="noopener" class="soc-link" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;padding:32px;color:var(--t2);border-top:1px solid var(--bdr);margin-top:32px;font-size:.85rem">
+      <p>© 2026 ABCSolar. Todos los derechos reservados. | <a href="#" style="color:var(--sun);text-decoration:none">Política de Privacidad</a> | <a href="#" style="color:var(--sun);text-decoration:none">Términos de Uso</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav-mobile.js"></script>
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+          item.style.animation = 'fadeIn 0.3s ease';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function viewImage(element) {
+      const img = element.querySelector('img').src;
+      const title = element.querySelector('.gallery-item-title').textContent;
+      alert(`${title}\n\nVer en tamaño completo.\n\n(Esta funcionalidad se puede expandir con lightbox)`);
+    }
+  </script>
+</body>
+</html>
