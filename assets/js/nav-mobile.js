@@ -1,103 +1,54 @@
-/* ══════════════════════════════════════════════════════════════════════
-   MOBILE NAVIGATION — Hamburger Menu Management
-═════════════════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE NAVIGATION — Hamburger toggle
+══════════════════════════════════════════════════════════════════ */
 
-let mobileNavInstance = null;
+let _navOpen = false;
 
-class MobileNav {
-  constructor() {
-    this.mobMenu = document.getElementById('mobMenu');
-    this.hamButton = document.querySelector('.ham');
-    this.mobLinks = this.mobMenu?.querySelectorAll('a') || [];
-    this.isOpen = false;
-
-    this.init();
-  }
-
-  init() {
-    // Hamburger button click - TOGGLE MENU
-    if (this.hamButton) {
-      this.hamButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (this.isOpen) {
-          this.closeMenu();
-        } else {
-          this.openMenu();
-        }
-      });
-    }
-
-    // Close menu when link is clicked
-    this.mobLinks.forEach((link) => {
-      link.addEventListener('click', () => this.closeMenu());
-    });
-
-    // Close menu with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isOpen) {
-        this.closeMenu();
-      }
-    });
-
-    // Close menu when clicking outside
-    if (this.mobMenu) {
-      this.mobMenu.addEventListener('click', (e) => {
-        if (e.target === this.mobMenu && this.isOpen) {
-          this.closeMenu();
-        }
-      });
-    }
-  }
-
-  openMenu() {
-    if (this.mobMenu && !this.isOpen) {
-      this.mobMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      this.isOpen = true;
-
-      // Animate hamburger
-      const spans = this.hamButton?.querySelectorAll('span');
-      if (spans) {
-        spans[0].style.transform = 'rotate(45deg) translateY(12px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translateY(-12px)';
-      }
-    }
-  }
-
-  closeMenu() {
-    if (this.mobMenu && this.isOpen) {
-      this.mobMenu.classList.remove('open');
-      document.body.style.overflow = '';
-      this.isOpen = false;
-
-      // Reset hamburger
-      const spans = this.hamButton?.querySelectorAll('span');
-      if (spans) {
-        spans[0].style.transform = '';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = '';
-      }
-    }
-  }
-}
-
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    mobileNavInstance = new MobileNav();
-  });
-} else {
-  mobileNavInstance = new MobileNav();
-}
-
-// Legacy functions for HTML onclick handlers
 function openMob() {
-  if (!mobileNavInstance) mobileNavInstance = new MobileNav();
-  mobileNavInstance.openMenu();
+  const menu = document.getElementById('mobMenu');
+  const ham  = document.querySelector('.ham');
+  if (!menu) return;
+  _navOpen = true;
+  menu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (ham) {
+    ham.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translateY(7px)';
+    ham.querySelector('span:nth-child(2)').style.opacity  = '0';
+    ham.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translateY(-7px)';
+  }
 }
 
 function closeMob() {
-  if (!mobileNavInstance) mobileNavInstance = new MobileNav();
-  mobileNavInstance.closeMenu();
+  const menu = document.getElementById('mobMenu');
+  const ham  = document.querySelector('.ham');
+  if (!menu) return;
+  _navOpen = false;
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+  if (ham) {
+    ham.querySelector('span:nth-child(1)').style.transform = '';
+    ham.querySelector('span:nth-child(2)').style.opacity  = '1';
+    ham.querySelector('span:nth-child(3)').style.transform = '';
+  }
 }
+
+function toggleMob() {
+  _navOpen ? closeMob() : openMob();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ham = document.querySelector('.ham');
+  if (ham) {
+    // Quitar el onclick inline y manejar aquí
+    ham.removeAttribute('onclick');
+    ham.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMob();
+    });
+  }
+
+  // Cerrar con ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && _navOpen) closeMob();
+  });
+});

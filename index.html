@@ -32,14 +32,17 @@
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <button class="mob-close" onclick="closeMob()">✕</button>
+  <div class="mob-header">
+    <img src="public/logo-abc-full.png" alt="ABCSolar" style="height:40px;width:auto;object-fit:contain;filter:none;">
+    <button class="mob-close" onclick="closeMob()" aria-label="Cerrar menú">✕</button>
+  </div>
   <a href="#beneficios" onclick="closeMob()">Beneficios</a>
   <a href="#para-quien" onclick="closeMob()">Soluciones</a>
   <a href="#calculadora" onclick="closeMob()">Calculadora</a>
+  <a href="galeria.html" onclick="closeMob()">Galería</a>
   <a href="#clientes" onclick="closeMob()">Clientes</a>
-  <a href="#proyectos" onclick="closeMob()">Proyectos</a>
   <a href="#testimonios" onclick="closeMob()">Testimonios</a>
-  <a href="#contacto" onclick="closeMob()" style="color:var(--sun)">Cotización →</a>
+  <a href="#contacto" onclick="closeMob()" class="mob-cta">Cotización Gratis →</a>
 </div>
 
 <!-- NAV -->
@@ -122,7 +125,7 @@
         <div class="mosaic-tag">Industrial</div>
       </div>
       <div class="mosaic-img">
-        <img src="assets/images/projects/proyecto-residencial-1.jpg" alt="Casa con paneles" loading="eager">
+        <img src="assets/images/projects/proyecto-residencial-nuevo.jpg" alt="Casa residencial" loading="eager" style="object-position: center top;">
         <div class="mosaic-overlay"></div>
         <div class="mosaic-tag">Residencial</div>
       </div>
@@ -132,7 +135,7 @@
         <div class="mosaic-tag">Energía limpia</div>
       </div>
       <div class="mosaic-img span2">
-        <img src="assets/images/projects/proyecto-comercial-1.jpg" alt="Instalación comercial" loading="eager">
+        <img src="assets/images/projects/proyecto-comercial-pergola.jpg" alt="Pérgola solar comercial" loading="eager" style="object-position: center 30%;">
         <div class="mosaic-overlay"></div>
         <div class="mosaic-tag">Comercial</div>
       </div>
@@ -287,7 +290,7 @@
 
 <!-- ══ IMAGE BREAK 1 ══ -->
 <div class="img-break">
-  <img id="pb1" loading="lazy" src="assets/images/projects/proyecto-industrial-1.jpg" alt="Instalación industrial">
+  <img id="pb1" loading="lazy" src="assets/images/projects/proyecto-residencial-nuevo.jpg" alt="Instalación residencial" style="object-position: center top;">
   <div class="img-break-overlay">
     <div class="img-break-title">Más de <span>500 instalaciones</span><br>en 8 estados mexicanos</div>
     <a href="#contacto" class="btn-primary" style="font-size:.9rem;padding:13px 28px">Únete a nuestros clientes →</a>
@@ -304,7 +307,7 @@
     <button class="tab-btn" onclick="setTab(2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M2 20V8l7-5v5l7-5v5l5-3v10z"/></svg> Industrial</button>
   </div>
   <div class="tab-content active" id="tab0">
-    <div class="tab-img"><img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" alt="Casa con paneles"></div>
+    <div class="tab-img"><img loading="lazy" src="assets/images/projects/proyecto-techo-1.jpg" alt="Instalación residencial en techo"></div>
     <div class="tab-info">
       <div class="tab-type">Residencial</div>
       <div class="tab-title">Ahorro inmediato en tu recibo de luz</div>
@@ -319,7 +322,7 @@
     </div>
   </div>
   <div class="tab-content" id="tab1">
-    <div class="tab-img"><img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" alt="Instalación comercial"></div>
+    <div class="tab-img"><img loading="lazy" src="assets/images/projects/proyecto-comercial-pergola.jpg" alt="Pérgola solar comercial" style="object-position: center 30%;"></div>
     <div class="tab-info">
       <div class="tab-type">Comercial</div>
       <div class="tab-title">Reduce costos operativos de tu empresa</div>
@@ -579,31 +582,31 @@
     </div>
   </div>
   <div class="abc-gallery-item">
-    <img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" alt="Residencial premium">
+    <img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" alt="Casa con paneles y lago">
     <div class="abc-gallery-item-overlay">
       <div class="abc-gallery-tag">Residencial</div>
       <div class="abc-gallery-title">Casa premium con vista</div>
     </div>
   </div>
   <div class="abc-gallery-item">
-    <img loading="lazy" src="assets/images/projects/proyecto-residencial-2.jpg" alt="Casa moderna">
-    <div class="abc-gallery-item-overlay">
-      <div class="abc-gallery-tag">Residencial</div>
-      <div class="abc-gallery-title">Casa moderna</div>
-    </div>
-  </div>
-  <div class="abc-gallery-item">
-    <img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" alt="Comercial">
+    <img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" alt="Instalación comercial">
     <div class="abc-gallery-item-overlay">
       <div class="abc-gallery-tag">Comercial</div>
       <div class="abc-gallery-title">Edificio comercial</div>
     </div>
   </div>
   <div class="abc-gallery-item">
-    <img loading="lazy" src="assets/images/projects/proyecto-techo-1.jpg" alt="Techo residencial">
+    <img loading="lazy" src="assets/images/projects/proyecto-residencial-nuevo.jpg" alt="Casa residencial Toluca" style="object-position: center top;">
     <div class="abc-gallery-item-overlay">
       <div class="abc-gallery-tag">Residencial</div>
-      <div class="abc-gallery-title">Instalación en techo</div>
+      <div class="abc-gallery-title">Casa en zona urbana</div>
+    </div>
+  </div>
+  <div class="abc-gallery-item">
+    <img loading="lazy" src="assets/images/projects/proyecto-comercial-pergola.jpg" alt="Pérgola solar" style="object-position: center 30%;">
+    <div class="abc-gallery-item-overlay">
+      <div class="abc-gallery-tag">Comercial</div>
+      <div class="abc-gallery-title">Pérgola solar — Diseño único</div>
     </div>
   </div>
 </div>
