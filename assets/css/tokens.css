@@ -92,7 +92,7 @@
 
 /* Typography */
 :root {
-  --ff-body: 'Outfit', sans-serif;
+  --ff-body: 'Merriweather', 'Georgia', serif;
   --ff-display: 'Playfair Display', serif;
 
   --fs-base: 1rem;

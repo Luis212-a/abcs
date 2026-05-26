@@ -10,7 +10,7 @@
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 
   <!-- Stylesheets (Modular CSS) -->
   <link rel="stylesheet" href="assets/css/tokens.css">
@@ -388,9 +388,37 @@
       <div class="step-arrow">✓</div>
     </div>
   </div>
-</section>
 
-<!-- ══ CALCULADORA ══ -->
+  <!-- VIDEO MODAL -->
+  <div style="margin-top: 60px; text-align: center;">
+    <button onclick="openVideoModal()" class="btn-primary" style="padding: 14px 32px; font-size: 1rem;">▶ Ver cómo lo hacemos</button>
+  </div>
+
+  <!-- Modal para video -->
+  <div id="videoModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="position: relative; max-width: 90vw; max-height: 90vh; border-radius: 12px; overflow: hidden;">
+      <button onclick="closeVideoModal()" style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.2); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 20px; z-index: 10;">✕</button>
+      <video id="videoPlayer" style="width: 100%; height: 100%; object-fit: contain;" controls>
+        <source src="assets/video/proceso.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function openVideoModal() {
+      document.getElementById('videoModal').style.display = 'flex';
+      document.getElementById('videoPlayer').play();
+    }
+    function closeVideoModal() {
+      document.getElementById('videoModal').style.display = 'none';
+      document.getElementById('videoPlayer').pause();
+    }
+    document.getElementById('videoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideoModal();
+    });
+  </script>
+</section>
 <section id="calculadora">
   <div class="s-tag">Simulador de ahorro</div>
   <h2 class="s-title reveal">¿Cuánto puedes<br><span style="color:var(--sun)">ahorrar</span> con solar?</h2>
@@ -443,54 +471,48 @@
 </section>
 
 <!-- ══ COBERTURA NACIONAL ══ -->
-<section id="cobertura">
-  <div class="s-tag">Zonas de operación</div>
-  <h2 class="s-title reveal">Presencia en<br>8 estados mexicanos</h2>
-  <p class="s-sub reveal">Operamos activamente en Estado de México, Ciudad de México, Guanajuato, Querétaro, San Luis Potosí, Puebla, Veracruz y Tabasco con el mismo nivel de servicio, garantía y certificación.</p>
-  <div class="cob-layout">
-    <div>
-      <div class="states-grid stg" id="statesGrid">
-        <div class="stt on">CDMX</div><div class="stt on">Edo. Méx.</div><div class="stt on">Guanajuato</div><div class="stt on">Querétaro</div>
-        <div class="stt on">San Luis P.</div><div class="stt on">Puebla</div><div class="stt on">Veracruz</div><div class="stt on">Tabasco</div>
-      </div>
-      <div class="cob-legend">
-        <div class="cob-legend-item">
-          <div class="cob-legend-sq" style="background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.5)"></div>
-          Con cobertura activa
-        </div>
-      </div>
-      <div class="co2-badge">
-        <div class="co2-dot"></div>
-        <div>
-          <div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin-bottom:2px">CO₂ evitado hoy</div>
-          <div class="co2-badge-num"><span id="co2LiveCounter">0</span> kg</div>
-          <div class="co2-badge-lbl">contador en tiempo real · todas las instalaciones activas</div>
-        </div>
-      </div>
+<section id="cobertura" style="background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(56,189,248,0.1) 100%), radial-gradient(circle at top right, rgba(34,197,94,0.05), transparent 50%); position: relative; overflow: hidden;">
+  <!-- Fondo decorativo -->
+  <div style="position: absolute; inset: 0; opacity: 0.03; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22><circle cx=%22100%22 cy=%2250%22 r=%2280%22 fill=%22currentColor%22/><circle cx=%221100%22 cy=%22550%22 r=%2260%22 fill=%22currentColor%22/></svg>'); pointer-events: none;"></div>
+  
+  <div style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 100px 56px; text-align: center;">
+    <div class="s-tag" style="font-family: 'Merriweather', 'Georgia', serif;">Zonas de operación</div>
+    <h2 class="s-title reveal" style="font-family: 'Merriweather', 'Georgia', serif; margin-bottom: 24px;">Presencia directa en<br><span style="color: var(--sun);">8 estados mexicanos</span></h2>
+    <p class="s-sub reveal" style="font-family: 'Merriweather', 'Georgia', serif; max-width: 700px; margin: 0 auto 60px;">Operamos activamente con el mismo nivel de servicio, garantía y certificación en cada región. Respuesta garantizada en menos de 48 horas.</p>
+    
+    <!-- Grid de estados centrado -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto 60px;">
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 CDMX</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Edo. Méx.</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Guanajuato</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Querétaro</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 San Luis P.</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Puebla</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Veracruz</div>
+      <div style="padding: 20px; background: rgba(245,158,11,0.1); border: 2px solid rgba(245,158,11,0.3); border-radius: 12px; font-family: 'Merriweather', 'Georgia', serif; font-weight: 600; color: var(--t1);">🌍 Tabasco</div>
     </div>
-    <div class="cob-stats">
-      <div class="cob-stat-big">
-        <div class="n">8</div>
-        <div class="l">Estados con cobertura directa</div>
-        <div class="d">Cobertura completa en la zona central, occidente y golfo de México. Respuesta en menos de 48 horas en cualquier estado de nuestra zona.</div>
+    
+    <!-- Estadísticas -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto;">
+      <div style="padding: 32px; background: rgba(255,255,255,0.5); border-radius: 12px; backdrop-filter: blur(10px);">
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 2.5rem; font-weight: 900; color: var(--sun); margin-bottom: 8px;">8</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 1rem; color: var(--t1); font-weight: 600;">Estados con cobertura</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 0.85rem; color: var(--t2); margin-top: 8px;">Zona central, occidente y golfo</div>
       </div>
-      <div class="cob-mini-grid">
-        <div class="cob-mini">
-          <div class="n">7K+</div>
-          <div class="l">Ton CO₂<br>evitadas totales</div>
-        </div>
-        <div class="cob-mini sky">
-          <div class="n">12M+</div>
-          <div class="l">kWh generados<br>al año</div>
-        </div>
-        <div class="cob-mini">
-          <div class="n">500+</div>
-          <div class="l">Proyectos<br>completados</div>
-        </div>
-        <div class="cob-mini">
-          <div class="n">15+</div>
-          <div class="l">Años de<br>experiencia</div>
-        </div>
+      <div style="padding: 32px; background: rgba(255,255,255,0.5); border-radius: 12px; backdrop-filter: blur(10px);">
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 2.5rem; font-weight: 900; color: var(--sun); margin-bottom: 8px;">500+</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 1rem; color: var(--t1); font-weight: 600;">Proyectos completados</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 0.85rem; color: var(--t2); margin-top: 8px;">Con garantía de 25 años</div>
+      </div>
+      <div style="padding: 32px; background: rgba(255,255,255,0.5); border-radius: 12px; backdrop-filter: blur(10px);">
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 2.5rem; font-weight: 900; color: var(--sun); margin-bottom: 8px;">15+</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 1rem; color: var(--t1); font-weight: 600;">Años de experiencia</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 0.85rem; color: var(--t2); margin-top: 8px;">En energía solar</div>
+      </div>
+      <div style="padding: 32px; background: rgba(255,255,255,0.5); border-radius: 12px; backdrop-filter: blur(10px);">
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 2.5rem; font-weight: 900; color: var(--sun); margin-bottom: 8px;">48h</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 1rem; color: var(--t1); font-weight: 600;">Tiempo de respuesta</div>
+        <div style="font-family: 'Merriweather', 'Georgia', serif; font-size: 0.85rem; color: var(--t2); margin-top: 8px;">Garantizado en tu zona</div>
       </div>
     </div>
   </div>
