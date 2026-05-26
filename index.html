@@ -407,15 +407,38 @@
 
   <script>
     function openVideoModal() {
-      document.getElementById('videoModal').style.display = 'flex';
-      document.getElementById('videoPlayer').play();
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('videoPlayer');
+      if (modal) {
+        modal.style.display = 'flex';
+        if (video) {
+          video.load();
+          video.play().catch(e => console.log('Video play error:', e));
+        }
+      }
     }
     function closeVideoModal() {
-      document.getElementById('videoModal').style.display = 'none';
-      document.getElementById('videoPlayer').pause();
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('videoPlayer');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
     }
-    document.getElementById('videoModal').addEventListener('click', function(e) {
-      if (e.target === this) closeVideoModal();
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('videoModal');
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) closeVideoModal();
+        });
+        // Cerrar con ESC
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeVideoModal();
+        });
+      }
     });
   </script>
 </section>
