@@ -123,21 +123,28 @@ nav.slim { padding: 8px 56px; }
   gap: var(--space-md);
 }
 
+/* Ham — el nav siempre es oscuro, las barras siempre blancas */
 .ham {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px 6px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.2s ease;
 }
-
+.ham:hover { background: rgba(255,255,255,0.15); }
 .ham span {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--t0);
+  background: #ffffff;
   border-radius: 2px;
-  transition: var(--transition-normal);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 }
 
 /* Mobile Menu */
@@ -400,3 +407,5 @@ nav.slim { padding: 8px 56px; }
   outline: 2px solid var(--sun);
   outline-offset: 6px;
 }
+
+.mob-cta-bar { display: none !important; }
