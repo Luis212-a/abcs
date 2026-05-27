@@ -280,11 +280,10 @@
 <!-- VIDEO MODAL -->
 <div id="videoModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;align-items:center;justify-content:center;">
   <div style="position:relative;width:90vw;max-width:960px;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.6);">
-    <button onclick="closeVideoModal()" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.15);border:none;color:white;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:18px;z-index:10;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">✕</button>
-    <video id="videoPlayer" style="width:100%;display:block;max-height:80vh;background:#000;" controls playsinline>
-      <source src="assets/video/proceso.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
+    <button onclick="closeVideoModal()" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.15);border:none;color:white;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:18px;z-index:10;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">✕</button>
+    <div style="position:relative;padding-bottom:56.25%;height:0;background:#000;">
+      <iframe id="ytPlayer" src="" title="ABCSolar — Video promocional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;"></iframe>
+    </div>
   </div>
 </div>
 
@@ -1162,35 +1161,35 @@ function animCount(el) {
   }, 16);
 }
 
-/* ══ VIDEO MODAL ══ */
+/* ══ VIDEO MODAL — YouTube ══ */
 (function () {
+  // 👉 Pega aquí el ID de tu video de YouTube (lo que va después de ?v= en la URL)
+  // Ejemplo: https://www.youtube.com/watch?v=dQw4w9WgXcQ → ID es 'dQw4w9WgXcQ'
+  const YOUTUBE_ID = '';
+
   const modal = document.getElementById('videoModal');
   if (!modal) return;
 
   function openVideoModal() {
-    const video = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('ytPlayer');
+    if (iframe && YOUTUBE_ID) {
+      iframe.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`;
+    }
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    if (video) { video.load(); video.play().catch(() => {}); }
   }
 
   function closeVideoModal() {
-    const video = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('ytPlayer');
+    if (iframe) iframe.src = '';
     modal.style.display = 'none';
     document.body.style.overflow = '';
-    if (video) { video.pause(); video.currentTime = 0; }
   }
 
-  // Cerrar al hacer click fuera del video
   modal.addEventListener('click', e => { if (e.target === modal) closeVideoModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
 
-  // Cerrar con ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') closeVideoModal();
-  });
-
-  // Exponer funciones globalmente
-  window.openVideoModal = openVideoModal;
+  window.openVideoModal  = openVideoModal;
   window.closeVideoModal = closeVideoModal;
 })();
 

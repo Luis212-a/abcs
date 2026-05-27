@@ -87,22 +87,6 @@ nav.slim { padding: 8px 56px; }
   box-shadow: 0 4px 20px rgba(245,158,11,0.5);
 }
 
-/* Hamburger */
-.ham {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-}
-.ham span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
 
 /* Theme toggle */
 .theme-btn {
@@ -123,29 +107,24 @@ nav.slim { padding: 8px 56px; }
   gap: var(--space-md);
 }
 
-/* Ham — el nav siempre es oscuro, las barras siempre blancas */
+/* Ham — oculto en desktop, visible solo en móvil */
 .ham {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 8px 6px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  transition: background 0.2s ease;
+  padding: 4px;
 }
-.ham:hover { background: rgba(255,255,255,0.15); }
 .ham span {
   display: block;
-  width: 22px;
+  width: 24px;
   height: 2px;
   background: #ffffff;
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-}
+
 
 /* Mobile Menu */
 .mob-menu {
