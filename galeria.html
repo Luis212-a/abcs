@@ -1,384 +1,649 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galería de Proyectos | ABCSolar</title>
-  <meta name="description" content="Conoce nuestros proyectos solares completados. +500 instalaciones de éxito en residencial, comercial e industrial.">
+  <meta name="description" content="Más de 500 proyectos solares completados. Residencial, comercial e industrial en 8 estados de México.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/sections.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <style>
-    .gallery-full {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      padding: 56px;
+    /* ── HERO ── */
+    .gal-hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 120px 56px 80px;
+    }
+    .gal-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/projects/proyecto-industrial-1.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .gal-hero:hover .gal-hero-bg { transform: scale(1.0); }
+    .gal-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 780px;
+    }
+    .gal-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sun);
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.25);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+    }
+    .gal-hero-tag span { display:block; width:6px; height:6px; border-radius:50%; background:var(--sun); animation: pulse 2s infinite; }
+    .gal-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .gal-hero h1 em { color: var(--sun); font-style: normal; }
+    .gal-hero p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .gal-hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .gal-hero-stat { text-align: center; }
+    .gal-hero-stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--sun);
+      display: block;
+    }
+    .gal-hero-stat-l {
+      font-family: 'Merriweather', serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .gal-hero-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ── FILTROS ── */
+    .gal-filters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 48px 56px 0;
+    }
+    .gal-filter {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      font-family: 'Merriweather', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: 0.3px;
+    }
+    .gal-filter svg { opacity: 0.7; transition: opacity 0.25s; }
+    .gal-filter:hover {
+      border-color: rgba(245,158,11,0.4);
+      color: #fff;
+      background: rgba(245,158,11,0.07);
+    }
+    .gal-filter:hover svg { opacity: 1; }
+    .gal-filter.active {
+      background: var(--sun);
+      border-color: var(--sun);
+      color: #000;
+      box-shadow: 0 4px 18px rgba(245,158,11,0.35);
+    }
+    .gal-filter.active svg { opacity: 1; }
+
+    /* ── GRID MASONRY ── */
+    .gal-grid {
+      columns: 3;
+      column-gap: 16px;
+      padding: 40px 56px 56px;
       max-width: 1400px;
       margin: 0 auto;
     }
-
-    .gallery-item {
+    .gal-card {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
-      aspect-ratio: 16/10;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      break-inside: avoid;
       cursor: pointer;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s ease;
     }
-
-    .gallery-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(245,158,11,0.2);
+    .gal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.2);
     }
-
-    .gallery-item img {
+    .gal-card img {
       width: 100%;
-      height: 100%;
+      display: block;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
     }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .gallery-item-overlay {
+    .gal-card:hover img { transform: scale(1.06); }
+    .gal-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 24px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      padding: 22px;
     }
-
-    .gallery-item:hover .gallery-item-overlay {
-      opacity: 1;
-    }
-
-    .gallery-item-category {
-      font-size: 0.75rem;
+    .gal-card:hover .gal-card-overlay { opacity: 1; }
+    .gal-card-tag {
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--sun);
-      margin-bottom: 8px;
-      font-family: 'Merriweather', serif;
-    }
-
-    .gallery-item-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: white;
       margin-bottom: 6px;
       font-family: 'Merriweather', serif;
     }
-
-    .gallery-item-desc {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.95);
-      font-family: 'Merriweather', serif;
-    }
-
-    .filter-buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 40px 56px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .filter-btn {
-      padding: 12px 28px;
-      border: 2px solid var(--sun);
-      border-radius: 30px;
-      background: transparent;
-      color: var(--sun);
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Merriweather', serif;
+    .gal-card-title {
       font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Merriweather', serif;
+      line-height: 1.35;
     }
 
-    .filter-btn:hover {
-      background: rgba(245,158,11,0.1);
-      transform: translateY(-2px);
-    }
+    /* Altura de tarjetas variada para aspecto masonry */
+    .gal-card img.tall  { aspect-ratio: 3/4; }
+    .gal-card img.wide  { aspect-ratio: 16/9; }
+    .gal-card img.sq    { aspect-ratio: 1/1; }
+    .gal-card img.mid   { aspect-ratio: 4/3; }
 
-    .filter-btn.active {
-      background: var(--sun);
-      color: white;
-      box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
-
-    .gallery-stats {
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      animation: lbIn 0.3s ease;
+    }
+    @keyframes lbIn {
+      from { opacity:0; transform: scale(0.95); }
+      to   { opacity:1; transform: scale(1); }
+    }
+    .lightbox-inner img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+    .lightbox-info {
+      margin-top: 16px;
       text-align: center;
-      padding: 40px 56px;
-      color: var(--t2);
     }
+    .lightbox-info .lb-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sun);
+      margin-bottom: 6px;
+      font-family: 'Merriweather', serif;
+    }
+    .lightbox-info .lb-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Merriweather', serif;
+    }
+    .lb-close {
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+    .lb-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; font-size: 1.2rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 1;
+    }
+    .lb-nav:hover { background: rgba(245,158,11,0.3); border-color: var(--sun); }
+    .lb-prev { left: -60px; }
+    .lb-next { right: -60px; }
 
-    @media (max-width: 768px) {
-      .gallery-full {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 16px;
-      }
+    /* ── CTA FINAL ── */
+    .gal-cta {
+      text-align: center;
+      padding: 80px 56px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(56,189,248,0.04));
+      border-top: 1px solid var(--bdr);
+    }
+    .gal-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .gal-cta p {
+      font-family: 'Merriweather', serif;
+      color: var(--t2);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+    .gal-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-      .filter-buttons {
-        padding: 20px;
-      }
-
-      .gallery-stats {
-        padding: 20px;
-      }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .gal-grid { columns: 2; }
+      .lb-prev { left: -10px; }
+      .lb-next { right: -10px; }
+    }
+    @media (max-width: 640px) {
+      .gal-hero { padding: 100px 20px 60px; min-height: 360px; }
+      .gal-filters { padding: 32px 20px 0; gap: 8px; }
+      .gal-filter { padding: 8px 16px; font-size: 0.78rem; }
+      .gal-grid { columns: 1; padding: 24px 20px 40px; }
+      .gal-cta { padding: 60px 20px; }
+      .gal-hero-divider { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="index.html" class="nav-logo"><img src="public/logo-abc-full.png" id="navLogo" alt="ABCSolar" style="height:48px;width:auto;object-fit:contain"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#beneficios">Beneficios</a></li>
-      <li><a href="index.html#calculadora">Calculadora</a></li>
-      <li><a href="index.html#para-quien">Soluciones</a></li>
-      <li><a href="galeria.html">Galería</a></li>
-      <li><a href="index.html#contacto">Contacto</a></li>
-    </ul>
-    <button class="ham" onclick="openMob()"><span></span><span></span><span></span></button>
-  </nav>
 
-  <!-- MOBILE MENU -->
-  <div id="mobMenu" class="mob-menu">
-    <a href="index.html#beneficios" onclick="closeMob()">Beneficios</a>
-    <a href="index.html#calculadora" onclick="closeMob()">Calculadora</a>
-    <a href="index.html#para-quien" onclick="closeMob()">Soluciones</a>
-    <a href="galeria.html" onclick="closeMob()">Galería</a>
-    <a href="index.html#contacto" onclick="closeMob()">Contacto</a>
+<!-- MOB MENU -->
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-header">
+    <img src="public/logo-abc-full.png" alt="ABCSolar" style="height:40px;width:auto;object-fit:contain;filter:none;">
+    <button class="mob-close" onclick="closeMob()" aria-label="Cerrar menú">✕</button>
   </div>
+  <a href="index.html#beneficios" onclick="closeMob()">Beneficios</a>
+  <a href="index.html#para-quien" onclick="closeMob()">Soluciones</a>
+  <a href="index.html#calculadora" onclick="closeMob()">Calculadora</a>
+  <a href="galeria.html" onclick="closeMob()">Galería</a>
+  <a href="index.html#clientes" onclick="closeMob()">Clientes</a>
+  <a href="index.html#testimonios" onclick="closeMob()">Testimonios</a>
+  <a href="index.html#contacto" onclick="closeMob()" class="mob-cta">Cotización Gratis →</a>
+</div>
 
-  <!-- HERO -->
-  <section style="padding:120px 56px;text-align:center;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(56,189,248,.05))">
-    <h1 style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;margin-bottom:16px">Nuestros Proyectos</h1>
-    <p style="font-size:1.2rem;color:var(--t2);max-width:600px;margin:0 auto">
-      Conoce las historias de éxito de nuestros clientes. Más de 500 instalaciones solares completadas en residencial, comercial e industrial.
-    </p>
-  </section>
-
-  <!-- FILTROS -->
-  <div class="filter-buttons">
-    <button class="filter-btn active" onclick="filterGallery('all')">Todos</button>
-    <button class="filter-btn" onclick="filterGallery('residencial')">Residencial</button>
-    <button class="filter-btn" onclick="filterGallery('comercial')">Comercial</button>
-    <button class="filter-btn" onclick="filterGallery('industrial')">Industrial</button>
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="public/logo-abc-full.png" id="navLogo" alt="ABCSolar">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#beneficios">Beneficios</a></li>
+    <li><a href="index.html#calculadora">Calculadora</a></li>
+    <li><a href="index.html#para-quien">Soluciones</a></li>
+    <li><a href="galeria.html" style="color:var(--sun)">Galería</a></li>
+    <li><a href="index.html#testimonios">Testimonios</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
+    <a href="index.html#contacto" class="btn-cta">Cotización Gratis</a>
+    <div class="ham" role="button" tabindex="0" aria-label="Abrir menú"><span></span><span></span><span></span></div>
   </div>
+</nav>
 
-  <!-- GALERÍA -->
-  <div class="gallery-full">
-    <!-- Residencial -->
-    <div class="gallery-item residencial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" alt="Casa con vista panorámica">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Residencial</div>
-        <div class="gallery-item-title">Casa con vista panorámica</div>
-        <div class="gallery-item-desc">Instalación en zona premium con vista despejada</div>
+<!-- HERO -->
+<section class="gal-hero">
+  <div class="gal-hero-bg"></div>
+  <div class="gal-hero-content reveal">
+    <div class="gal-hero-tag"><span></span>Portafolio de proyectos</div>
+    <h1>Cada instalación,<br>una historia de <em>ahorro real</em></h1>
+    <p>Más de 500 proyectos solares completados. Hogares, empresas e industrias que ya generan su propia energía con ABCSolar.</p>
+    <div class="gal-hero-stats">
+      <div class="gal-hero-stat">
+        <span class="gal-hero-stat-n">500+</span>
+        <span class="gal-hero-stat-l">Proyectos</span>
       </div>
-    </div>
-
-    <div class="gallery-item residencial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-residencial-2.jpg" alt="Casa moderna con paneles">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Residencial</div>
-        <div class="gallery-item-title">Casa moderna</div>
-        <div class="gallery-item-desc">Integración perfecta de paneles solares</div>
+      <div class="gal-hero-divider"></div>
+      <div class="gal-hero-stat">
+        <span class="gal-hero-stat-n">8</span>
+        <span class="gal-hero-stat-l">Estados</span>
       </div>
-    </div>
-
-    <div class="gallery-item residencial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-residencial-3.jpg" alt="Vivienda residencial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Residencial</div>
-        <div class="gallery-item-title">Vivienda residencial</div>
-        <div class="gallery-item-desc">Sistema de energía limpia para el hogar</div>
+      <div class="gal-hero-divider"></div>
+      <div class="gal-hero-stat">
+        <span class="gal-hero-stat-n">15+</span>
+        <span class="gal-hero-stat-l">Años de experiencia</span>
       </div>
-    </div>
-
-    <!-- Comercial -->
-    <div class="gallery-item comercial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" alt="Instalación comercial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Comercial</div>
-        <div class="gallery-item-title">Espacio comercial grande</div>
-        <div class="gallery-item-desc">Instalación a gran escala para negocios</div>
-      </div>
-    </div>
-
-    <div class="gallery-item comercial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-comercial-2.jpg" alt="Edificio comercial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Comercial</div>
-        <div class="gallery-item-title">Edificio comercial</div>
-        <div class="gallery-item-desc">Múltiples paneles para máxima producción</div>
-      </div>
-    </div>
-
-    <div class="gallery-item comercial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-comercial-3.jpg" alt="Centro comercial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Comercial</div>
-        <div class="gallery-item-title">Centro comercial</div>
-        <div class="gallery-item-desc">Solución integral para negocios múltiples</div>
-      </div>
-    </div>
-
-    <!-- Industrial -->
-    <div class="gallery-item industrial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-industrial-1.jpg" alt="Instalación industrial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Industrial</div>
-        <div class="gallery-item-title">Nave industrial</div>
-        <div class="gallery-item-desc">Sistema de alta capacidad para manufactura</div>
-      </div>
-    </div>
-
-    <div class="gallery-item industrial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-industrial-2.jpg" alt="Planta industrial">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Industrial</div>
-        <div class="gallery-item-title">Planta industrial</div>
-        <div class="gallery-item-desc">Generación de energía a escala industrial</div>
-      </div>
-    </div>
-
-    <!-- Techos -->
-    <div class="gallery-item residencial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-techo-1.jpg" alt="Instalación en techo">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Residencial</div>
-        <div class="gallery-item-title">Instalación en techo</div>
-        <div class="gallery-item-desc">Aprovechamiento máximo del espacio disponible</div>
-      </div>
-    </div>
-
-    <div class="gallery-item residencial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-techo-2.jpg" alt="Techo solar">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Residencial</div>
-        <div class="gallery-item-title">Sistema en techo</div>
-        <div class="gallery-item-desc">Instalación profesional y limpia</div>
-      </div>
-    </div>
-
-    <!-- Detalles -->
-    <div class="gallery-item industrial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-detalle-1.jpg" alt="Detalle técnico">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Industrial</div>
-        <div class="gallery-item-title">Detalle de paneles</div>
-        <div class="gallery-item-desc">Calidad y precisión en cada instalación</div>
-      </div>
-    </div>
-
-    <div class="gallery-item comercial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-panel-detalle.jpg" alt="Paneles en detalle">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Comercial</div>
-        <div class="gallery-item-title">Paneles profesionales</div>
-        <div class="gallery-item-desc">Tecnología de punta en cada proyecto</div>
-      </div>
-    </div>
-
-    <div class="gallery-item comercial" onclick="viewImage(this)">
-      <img loading="lazy" src="assets/images/projects/proyecto-instalacion-1.jpg" alt="Proceso de instalación">
-      <div class="gallery-item-overlay">
-        <div class="gallery-item-category">Comercial</div>
-        <div class="gallery-item-title">Instalación profesional</div>
-        <div class="gallery-item-desc">Técnicos certificados en cada proyecto</div>
+      <div class="gal-hero-divider"></div>
+      <div class="gal-hero-stat">
+        <span class="gal-hero-stat-n">25</span>
+        <span class="gal-hero-stat-l">Años de garantía</span>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ESTADÍSTICAS -->
-  <div class="gallery-stats">
-    <div style="font-size:2rem;font-weight:900;color:var(--sun);margin-bottom:8px">+500</div>
-    <div style="font-size:1.1rem;font-weight:600">Proyectos completados con éxito</div>
-    <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--bdr)">
-      <p>Todos nuestros proyectos cuentan con garantía de 25 años y monitoreo remoto permanente. ¿Listo para transformar tu energía?</p>
-      <a href="index.html#contacto" class="btn-primary" style="margin-top:20px;display:inline-block">Solicita una cotización →</a>
+<!-- FILTROS -->
+<div class="gal-filters">
+  <button class="gal-filter active" data-filter="all">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Todos
+  </button>
+  <button class="gal-filter" data-filter="residencial">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Residencial
+  </button>
+  <button class="gal-filter" data-filter="comercial">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    Comercial
+  </button>
+  <button class="gal-filter" data-filter="industrial">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20V8l7-5v5l7-5v5l5-3v10z"/></svg>
+    Industrial
+  </button>
+</div>
+
+<!-- GRID -->
+<div class="gal-grid" id="galGrid">
+
+  <div class="gal-card residencial" data-title="Casa en zona urbana" data-cat="Residencial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-residencial-nuevo.jpg" class="mid" alt="Casa residencial Toluca" style="object-position:center top;">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Residencial</div>
+      <div class="gal-card-title">Casa en zona urbana</div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="footer-grid stg">
-      <div>
-        <div class="footer-logo"><img src="public/logo-abc-icon.png" id="footerLogo" alt="ABCSolar" style="height:60px;width:auto;object-fit:contain"></div>
-        <p style="color:var(--t2);margin-top:16px;font-size:.95rem">Tu aliado en energía solar. Instalaciones profesionales con garantía real y atención post-venta activa.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Navegación</div>
-        <ul class="footer-links">
-          <li><a href="index.html#beneficios">Beneficios</a></li>
-          <li><a href="index.html#para-quien">Soluciones</a></li>
-          <li><a href="index.html#calculadora">Calculadora</a></li>
-          <li><a href="galeria.html">Galería de proyectos</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Contacto</div>
-        <ul class="footer-links">
-          <li><a href="tel:+527226220941">📞 7226220941</a></li>
-          <li><a href="mailto:contacto@abcsolar.com.mx">✉️ contacto@abcsolar.com.mx</a></li>
-          <li><a href="#contacto">📍 Toluca, Estado de México</a></li>
-          <li><a href="https://wa.me/527226220941" target="_blank" rel="noopener">💬 WhatsApp</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Síguenos</div>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/ABCSTechnologies" target="_blank" rel="noopener" class="soc-link" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/abcsolar_/" target="_blank" rel="noopener" class="soc-link" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-        </div>
+  <div class="gal-card comercial" data-title="Pérgola solar — Diseño único" data-cat="Comercial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-comercial-pergola.jpg" class="tall" alt="Pérgola solar" style="object-position:center 30%;">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Comercial</div>
+      <div class="gal-card-title">Pérgola solar — Diseño único</div>
+    </div>
+  </div>
+
+  <div class="gal-card industrial" data-title="Nave industrial — Gran escala" data-cat="Industrial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-industrial-1.jpg" class="wide" alt="Instalación industrial">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Industrial</div>
+      <div class="gal-card-title">Nave industrial — Gran escala</div>
+    </div>
+  </div>
+
+  <div class="gal-card residencial" data-title="Casa premium con vista" data-cat="Residencial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-residencial-1.jpg" class="sq" alt="Casa con lago">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Residencial</div>
+      <div class="gal-card-title">Casa premium con vista</div>
+    </div>
+  </div>
+
+  <div class="gal-card residencial" data-title="Instalación en techo" data-cat="Residencial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-techo-1.jpg" class="mid" alt="Techo residencial">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Residencial</div>
+      <div class="gal-card-title">Instalación en techo</div>
+    </div>
+  </div>
+
+  <div class="gal-card comercial" data-title="Instalación comercial" data-cat="Comercial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-comercial-1.jpg" class="wide" alt="Edificio comercial">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Comercial</div>
+      <div class="gal-card-title">Instalación comercial</div>
+    </div>
+  </div>
+
+  <div class="gal-card industrial" data-title="Planta industrial" data-cat="Industrial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-industrial-2.jpg" class="tall" alt="Planta industrial">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Industrial</div>
+      <div class="gal-card-title">Planta industrial</div>
+    </div>
+  </div>
+
+  <div class="gal-card residencial" data-title="Sistema en techo" data-cat="Residencial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-techo-2.jpg" class="sq" alt="Techo solar">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Residencial</div>
+      <div class="gal-card-title">Sistema en techo</div>
+    </div>
+  </div>
+
+  <div class="gal-card comercial" data-title="Detalle de instalación" data-cat="Comercial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-instalacion-1.jpg" class="mid" alt="Proceso de instalación">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Comercial</div>
+      <div class="gal-card-title">Detalle de instalación</div>
+    </div>
+  </div>
+
+  <div class="gal-card residencial" data-title="Casa moderna" data-cat="Residencial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-residencial-2.jpg" class="wide" alt="Casa moderna">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Residencial</div>
+      <div class="gal-card-title">Casa moderna</div>
+    </div>
+  </div>
+
+  <div class="gal-card industrial" data-title="Paneles en detalle" data-cat="Industrial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-detalle-1.jpg" class="sq" alt="Detalle técnico">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Industrial</div>
+      <div class="gal-card-title">Paneles en detalle</div>
+    </div>
+  </div>
+
+  <div class="gal-card comercial" data-title="Tecnología fotovoltaica" data-cat="Comercial" onclick="openLb(this)">
+    <img loading="lazy" src="assets/images/projects/proyecto-panel-detalle.jpg" class="mid" alt="Panel detalle">
+    <div class="gal-card-overlay">
+      <div class="gal-card-tag">Comercial</div>
+      <div class="gal-card-title">Tecnología fotovoltaica</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLb()">
+  <div class="lightbox-inner">
+    <button class="lb-close" onclick="closeLb()">✕</button>
+    <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+    <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+    <img id="lbImg" src="" alt="">
+    <div class="lightbox-info">
+      <div class="lb-tag" id="lbTag"></div>
+      <div class="lb-title" id="lbTitle"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="gal-cta">
+  <h2>¿Listo para tu propio proyecto?</h2>
+  <p>Únete a los cientos de hogares y empresas que ya generan su propia energía. Cotización sin costo en 24 horas.</p>
+  <div class="gal-cta-btns">
+    <a href="index.html#contacto" class="btn-primary">Solicitar cotización gratis →</a>
+    <a href="https://wa.me/527226220941?text=Hola%2C%20vi%20la%20galería%20y%20me%20interesa%20una%20cotización" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border:1.5px solid rgba(255,255,255,0.2);border-radius:10px;color:var(--t1);font-family:'Merriweather',serif;font-size:0.9rem;font-weight:700;transition:all 0.25s ease;" onmouseover="this.style.borderColor='var(--sun)';this.style.color='var(--sun)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='var(--t1)'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.534 5.846L0 24l6.336-1.512C8.02 23.456 9.977 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.497-5.197-1.367l-.373-.22-3.762.898.936-3.655-.243-.378A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-grid stg">
+    <div>
+      <div class="footer-logo"><img src="public/logo-abc-icon.png" alt="ABCSolar" style="height:60px;width:auto;object-fit:contain;filter:none;"></div>
+      <p style="color:var(--t2);margin-top:16px;font-size:.9rem;font-family:'Merriweather',serif;line-height:1.7;">Tu aliado en energía solar. Instalaciones profesionales con garantía real y atención post-venta activa.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navegación</div>
+      <ul class="footer-links">
+        <li><a href="index.html#beneficios">Beneficios</a></li>
+        <li><a href="index.html#para-quien">Soluciones</a></li>
+        <li><a href="index.html#calculadora">Calculadora</a></li>
+        <li><a href="galeria.html">Galería de proyectos</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="tel:+527226220941">📞 7226220941</a></li>
+        <li><a href="mailto:contacto@abcsolar.com.mx">✉️ contacto@abcsolar.com.mx</a></li>
+        <li>📍 Toluca, Estado de México</li>
+        <li><a href="https://wa.me/527226220941" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Síguenos</div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/ABCSTechnologies" target="_blank" rel="noopener" class="soc-link" title="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/abcsolar_/" target="_blank" rel="noopener" class="soc-link" title="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
       </div>
     </div>
-    <div style="text-align:center;padding:32px;color:var(--t2);border-top:1px solid var(--bdr);margin-top:32px;font-size:.85rem">
-      <p>© 2026 ABCSolar. Todos los derechos reservados. | <a href="#" style="color:var(--sun);text-decoration:none">Política de Privacidad</a> | <a href="#" style="color:var(--sun);text-decoration:none">Términos de Uso</a></p>
-    </div>
-  </footer>
+  </div>
+  <div style="text-align:center;padding:28px;color:var(--t2);border-top:1px solid var(--bdr);margin-top:32px;font-size:.82rem;font-family:'Merriweather',serif;">
+    © 2026 ABCSolar. Todos los derechos reservados.
+  </div>
+</footer>
 
-  <script src="assets/js/nav-mobile.js"></script>
-  <script>
-    function filterGallery(category) {
-      const items = document.querySelectorAll('.gallery-item');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      items.forEach(item => {
-        if (category === 'all' || item.classList.contains(category)) {
-          item.style.display = 'block';
-          item.style.animation = 'fadeIn 0.3s ease';
-        } else {
-          item.style.display = 'none';
-        }
+<script src="assets/js/nav-mobile.js"></script>
+<script src="assets/js/theme-toggle.js"></script>
+<script>
+  /* ── Filtros ── */
+  document.querySelectorAll('.gal-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gal-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.gal-card').forEach(card => {
+        const show = f === 'all' || card.classList.contains(f);
+        card.style.opacity = show ? '1' : '0';
+        card.style.pointerEvents = show ? 'auto' : 'none';
+        card.style.transform = show ? '' : 'scale(0.95)';
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        card.style.display = show ? 'block' : 'none';
       });
-    }
+    });
+  });
 
-    function viewImage(element) {
-      const img = element.querySelector('img').src;
-      const title = element.querySelector('.gallery-item-title').textContent;
-      alert(`${title}\n\nVer en tamaño completo.\n\n(Esta funcionalidad se puede expandir con lightbox)`);
-    }
-  </script>
+  /* ── Lightbox ── */
+  let lbCards = [], lbIdx = 0;
+
+  function openLb(card) {
+    const visible = [...document.querySelectorAll('.gal-card')].filter(c => c.style.display !== 'none');
+    lbCards = visible;
+    lbIdx = visible.indexOf(card);
+    renderLb();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function lbNav(dir) {
+    lbIdx = (lbIdx + dir + lbCards.length) % lbCards.length;
+    renderLb();
+  }
+
+  function renderLb() {
+    const card = lbCards[lbIdx];
+    const img = card.querySelector('img');
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lbImg').alt = img.alt;
+    document.getElementById('lbTag').textContent = card.dataset.cat;
+    document.getElementById('lbTitle').textContent = card.dataset.title;
+  }
+
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft')  lbNav(-1);
+    if (e.key === 'ArrowRight') lbNav(1);
+  });
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
