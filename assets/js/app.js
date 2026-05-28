@@ -171,21 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape') closeVideoModal();
   });
 
-  /* ── TESTIMONIALS SCROLL ── */
-  var testPrev = document.getElementById('testPrev');
-  var testNext = document.getElementById('testNext');
-  if (testPrev) {
-    testPrev.addEventListener('click', function() {
-      var t = document.getElementById('testTrack');
-      if (t) t.scrollBy({ left: -380, behavior: 'smooth' });
-    });
-  }
-  if (testNext) {
-    testNext.addEventListener('click', function() {
-      var t = document.getElementById('testTrack');
-      if (t) t.scrollBy({ left: 380, behavior: 'smooth' });
-    });
-  }
+  /* ── TESTIMONIALS CAROUSEL — REMOVED (replaced by expanded "Resultados Reales") ── */
 
   /* ── FAQ ── */
   function toggleFaq(item) {
@@ -321,7 +307,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pctLbl) pctLbl.textContent = pct + '%';
 
     var pv = ((pct - 40) / 60) * 100;
-    pctEl.style.background = 'linear-gradient(to right,var(--sun) 0%,var(--sun) ' + pv + '%,var(--bdr) ' + pv + '%,var(--bdr) 100%)';
+    /* Clean track fill — golden progress, subtle track */
+    pctEl.style.background = 'linear-gradient(to right, #F59E0B 0%, #F59E0B ' + pv + '%, rgba(245,158,11,0.15) ' + pv + '%, rgba(245,158,11,0.15) 100%)';
 
     var t = TARIFAS[tipo] || TARIFAS.residencial;
     var tnEl = document.getElementById('tariff-note');
@@ -449,5 +436,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!prefersRM) sg.querySelectorAll('.stt.on').forEach(function(s) { s.style.opacity = '0'; });
     stateObs.observe(sg);
   }
+
+  /* ── B-ROLL marquee: pause on individual card hover ── */
+  /* CSS handles the loop animation; JS only pauses on card hover */
+  ['casosWrapper', 'grWrapper'].forEach(function(wrapperId) {
+    var wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
+    wrapper.addEventListener('mouseenter', function() {
+      wrapper.style.setProperty('--broll-state', 'paused');
+    });
+    wrapper.addEventListener('mouseleave', function() {
+      wrapper.style.setProperty('--broll-state', 'running');
+    });
+  });
 
 }); /* end DOMContentLoaded */
